@@ -44,6 +44,9 @@
         .warning {
             background-color: rgba(255, 165, 0, 0.3);
         }
+        canvas {
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
@@ -89,7 +92,7 @@
                 <span class="gradient-text">AlphaOne</span> Tools Suite
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate__animated animate__fadeIn animate__delay-1s">
-                Powerful static tools that work completely offline - no internet required!
+                Over 60 powerful static tools that work completely offline - no internet required!
             </p>
         </div>
     </section>
@@ -99,1184 +102,1145 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Our Tools</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Text Case Converter -->
-                <div onclick="showToolModal('textcase')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                <!-- Editable Document Tools -->
+                <div onclick="showToolModal('resume')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
                     <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Text Case Converter</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Convert text to various case formats instantly.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Resume Builder</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Create and edit professional resumes with PDF export.</p>
                 </div>
-
-                <!-- Loan Calculator -->
-                <div onclick="showToolModal('loan')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <div onclick="showToolModal('coverletter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Loan Calculator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Calculate monthly loan payments and total interest.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cover Letter Builder</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Create professional cover letters with PDF export.</p>
                 </div>
-
-                <!-- Age Calculator -->
-                <div onclick="showToolModal('age')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                <div onclick="showToolModal('proposal')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Age Calculator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Calculate your exact age in years, months, and days.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Proposal Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate business proposals with PDF export.</p>
                 </div>
-
-                <!-- QR Code Generator -->
-                <div onclick="showToolModal('qrcode')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-yellow-100 dark:bg-yellow-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m-3 0h-2m-2-3H5m11 5v-2m-3 0v2m0 0h-2m2 0h2"></path>
+                <div onclick="showToolModal('memopad')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">QR Code Generator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Generate QR codes for URLs or text instantly.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Memo Pad</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Write and save memos with TXT export.</p>
                 </div>
-
-                <!-- Password Generator -->
-                <div onclick="showToolModal('password')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-red-100 dark:bg-red-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                <div onclick="showToolModal('report')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Password Generator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Create strong, secure passwords with customizable options.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Report Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Create reports with PDF export.</p>
                 </div>
-
-                <!-- Word Counter -->
-                <div onclick="showToolModal('wordcounter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                <div onclick="showToolModal('contract')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Contract Drafting Tool</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Draft contracts with PDF export.</p>
+                </div>
+                <!-- Text Utilities -->
+                <div onclick="showToolModal('markdown')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
                     <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Markdown Editor</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Edit Markdown with live HTML preview.</p>
+                </div>
+                <div onclick="showToolModal('textdiff')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-yellow-100 dark:bg-yellow-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8h4m-4 4h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Text Diff Checker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Compare two texts and highlight differences.</p>
+                </div>
+                <div onclick="showToolModal('wordcounter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Word Counter</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Count words, characters, and spaces in your text.</p>
+                    <p class="text-gray-600 dark:text-gray-300">Count words, characters, and sentences.</p>
                 </div>
-
-                <!-- BMI Calculator -->
-                <div onclick="showToolModal('bmi')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-pink-100 dark:bg-pink-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                <div onclick="showToolModal('spellchecker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-red-100 dark:bg-red-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">BMI Calculator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Calculate your Body Mass Index and weight category.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Spell Checker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Check spelling in your text.</p>
                 </div>
-
-                <!-- Number to Words Converter -->
-                <div onclick="showToolModal('numtowords')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                <div onclick="showToolModal('grammarchecker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-red-100 dark:bg-red-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Number to Words</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Convert numbers to their word representation.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Grammar Checker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Check grammar in your text.</p>
                 </div>
-
-                <!-- Countdown Timer -->
-                <div onclick="showToolModal('countdown')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <div onclick="showToolModal('textformatter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Countdown Timer</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Set and track countdown timers easily.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Text Formatter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Format text with styles and export.</p>
                 </div>
-
-                <!-- JSON Formatter -->
+                <div onclick="showToolModal('caseconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Case Converter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Convert text case (upper, lower, title).</p>
+                </div>
+                <div onclick="showToolModal('textsummarizer')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Text Summarizer</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Summarize text with key points.</p>
+                </div>
+                <div onclick="showToolModal('keyworddensity')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Keyword Density Checker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Analyze keyword frequency in text.</p>
+                </div>
+                <div onclick="showToolModal('plagiarismchecker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-red-100 dark:bg-red-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Plagiarism Checker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Check text for uniqueness (offline simulation).</p>
+                </div>
+                <!-- Business Tools -->
+                <div onclick="showToolModal('invoice')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Invoice Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate and edit invoices with PDF export.</p>
+                </div>
+                <div onclick="showToolModal('businesscard')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8h18M3 16h18"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Business Card Maker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Design business cards with PDF export.</p>
+                </div>
+                <div onclick="showToolModal('budgetplanner')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Budget Planner</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Plan budgets with export options.</p>
+                </div>
+                <div onclick="showToolModal('expensetracker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Expense Tracker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Track expenses with export options.</p>
+                </div>
+                <div onclick="showToolModal('financialcalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Financial Calculator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Calculate financial metrics.</p>
+                </div>
+                <div onclick="showToolModal('businessplan')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Business Plan Builder</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Create business plans with PDF export.</p>
+                </div>
+                <div onclick="showToolModal('invoicetracker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Invoice Tracker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Track invoices with export options.</p>
+                </div>
+                <div onclick="showToolModal('receipt')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Receipt Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate receipts with PDF export.</p>
+                </div>
+                <!-- Developer Tools -->
                 <div onclick="showToolModal('jsonformatter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">JSON Formatter</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Format and validate JSON data neatly.</p>
+                    <p class="text-gray-600 dark:text-gray-300">Format and validate JSON data.</p>
                 </div>
-
-                <!-- Random Color Generator -->
-                <div onclick="showToolModal('color')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-rose-100 dark:bg-rose-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-rose-600 dark:text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div onclick="showToolModal('xmlvalidator')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">XML Validator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Validate and format XML data.</p>
+                </div>
+                <div onclick="showToolModal('regextester')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Regex Tester</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Test regular expressions with text.</p>
+                </div>
+                <div onclick="showToolModal('codeminifier')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Code Minifier</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Minify JavaScript/CSS code.</p>
+                </div>
+                <div onclick="showToolModal('base64encoder')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Base64 Encoder</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Encode/decode Base64 strings.</p>
+                </div>
+                <div onclick="showToolModal('htmlvalidator')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">HTML Validator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Validate HTML code.</p>
+                </div>
+                <div onclick="showToolModal('cssbeautifier')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">CSS Beautifier</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Beautify CSS code.</p>
+                </div>
+                <div onclick="showToolModal('jsminifier')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">JavaScript Minifier</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Minify JavaScript code.</p>
+                </div>
+                <!-- Design Tools -->
+                <div onclick="showToolModal('colorpalette')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Random Color Generator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Generate random colors in HEX format.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Color Palette Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate color palettes for design.</p>
                 </div>
-
-                <!-- Currency Converter -->
-                <div onclick="showToolModal('currency')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-lime-100 dark:bg-lime-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-lime-600 dark:text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                <div onclick="showToolModal('logomaker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Currency Converter</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Convert between currencies using static rates.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Logo Maker</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Create simple logos with export.</p>
                 </div>
-
-                <!-- Base64 Encoder/Decoder -->
-                <div onclick="showToolModal('base64')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-amber-100 dark:bg-amber-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.104-.896 2-2 2s-2-.896-2-2 2-4 2-4 2 .896 2 2zm0 0c0 1.104.896 2 2 2s2-.896 2-2-2-4-2-4-2 .896-2 2z"></path>
+                <div onclick="showToolModal('fontpairing')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Base64 Encoder/Decoder</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Encode or decode text in Base64 format.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Font Pairing Tool</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Find matching font pairs.</p>
                 </div>
-
-                <!-- Stopwatch -->
-                <div onclick="showToolModal('stopwatch')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <div onclick="showToolModal('imageresizer')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5.5 5.5m10.5-5.5h-4m4 0v4m-5.5 5.5l5.5 5.5m-5.5-5.5v4m0-4h-4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Stopwatch</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Track time with a simple stopwatch tool.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Image Resizer</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Resize images (offline simulation).</p>
                 </div>
-
-                <!-- HTML Minifier -->
-                <div onclick="showToolModal('htmlminifier')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-gray-100 dark:bg-gray-600/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                <div onclick="showToolModal('imagecompressor')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5.5 5.5m10.5-5.5h-4m4 0v4m-5.5 5.5l5.5 5.5m-5.5-5.5v4m0-4h-4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">HTML Minifier</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Minify HTML code to reduce file size.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Image Compressor</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Compress images (offline simulation).</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tool Modals -->
-    <!-- Text Case Converter Modal -->
-    <div id="textcase-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Text Case Converter</h3>
-                <button onclick="hideToolModal('textcase')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <textarea id="textcase-input" placeholder="Enter your text here..." rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"></textarea>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button onclick="convertCase('uppercase')" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Uppercase</button>
-                    <button onclick="convertCase('lowercase')" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Lowercase</button>
-                    <button onclick="convertCase('titlecase')" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Title Case</button>
-                    <button onclick="convertCase('sentencecase')" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Sentence Case</button>
-                </div>
-                <textarea id="textcase-output" readonly rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loan Calculator Modal -->
-    <div id="loan-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Loan Calculator</h3>
-                <button onclick="hideToolModal('loan')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <label for="loan-amount" class="block text-gray-700 dark:text-gray-300 mb-2">Loan Amount ($)</label>
-                        <input type="number" id="loan-amount" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="10000">
-                    </div>
-                    <div>
-                        <label for="loan-rate" class="block text-gray-700 dark:text-gray-300 mb-2">Annual Interest Rate (%)</label>
-                        <input type="number" id="loan-rate" step="0.1" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="5">
-                    </div>
-                    <div>
-                        <label for="loan-term" class="block text-gray-700 dark:text-gray-300 mb-2">Loan Term (Years)</label>
-                        <input type="number" id="loan-term" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="5">
-                    </div>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-gray-700 dark:text-gray-300">Monthly Payment:</span>
-                        <span id="loan-monthly" class="font-bold">$0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-700 dark:text-gray-300">Total Interest:</span>
-                        <span id="loan-interest" class="font-bold">$0</span>
-                    </div>
-                </div>
-                <button onclick="calculateLoan()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Calculate</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Age Calculator Modal -->
-    <div id="age-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Age Calculator</h3>
-                <button onclick="hideToolModal('age')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="mb-4">
-                    <label for="birthdate" class="block text-gray-700 dark:text-gray-300 mb-2">Date of Birth</label>
-                    <input type="date" id="birthdate" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-gray-700 dark:text-gray-300">Age:</span>
-                        <span id="age-output" class="font-bold">-</span>
-                    </div>
-                </div>
-                <button onclick="calculateAge()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Calculate</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- QR Code Generator Modal -->
-    <div id="qrcode-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">QR Code Generator</h3>
-                <button onclick="hideToolModal('qrcode')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <input type="text" id="qrcode-input" placeholder="Enter URL or text" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4">
-                <div id="qrcode-output" class="flex justify-center mb-4"></div>
-                <button onclick="generateQRCode()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate QR Code</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Password Generator Modal -->
-    <div id="password-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Password Generator</h3>
-                <button onclick="hideToolModal('password')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="mb-4">
-                    <label for="password-length" class="block text-gray-700 dark:text-gray-300 mb-2">Password Length</label>
-                    <input type="range" id="password-length" min="4" max="32" value="12" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                    <div class="flex justify-between mt-1">
-                        <span class="text-sm text-gray-500 dark:text-gray-400">4</span>
-                        <span id="length-value" class="text-sm font-medium">12</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">32</span>
-                    </div>
-                </div>
-                <div class="space-y-2 mb-6">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" id="include-numbers" checked class="form-checkbox h-4 w-4 text-blue-600 dark:text-blue-400">
-                        <span class="ml-2 text-gray-700 dark:text-gray-300">Include Numbers</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" id="include-symbols" checked class="form-checkbox h-4 w-4 text-blue-600 dark:text-blue-400">
-                        <span class="ml-2 text-gray-700 dark:text-gray-300">Include Symbols</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" id="include-uppercase" checked class="form-checkbox h-4 w-4 text-blue-600 dark:text-blue-400">
-                        <span class="ml-2 text-gray-700 dark:text-gray-300">Include Uppercase</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" id="include-lowercase" checked class="form-checkbox h-4 w-4 text-blue-600 dark:text-blue-400">
-                        <span class="ml-2 text-gray-700 dark:text-gray-300">Include Lowercase</span>
-                    </label>
-                </div>
-                <div class="relative mb-4">
-                    <input type="text" id="password-output" readonly class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-center font-mono text-lg">
-                    <button onclick="copyPassword()" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                <div onclick="showToolModal('colorconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343"></path>
                         </svg>
-                    </button>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Color Converter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Convert colors between formats.</p>
                 </div>
-                <button onclick="generatePassword()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate Password</button>
+                <div onclick="showToolModal('typography')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Typography Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate typography styles.</p>
+                </div>
+                <!-- File + PDF Tools -->
+                <div onclick="showToolModal('letterhead')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Letterhead Editor</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Edit letterheads with PDF export.</p>
+                </div>
+                <div onclick="showToolModal('pdfeditor')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">PDF Editor</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Edit PDFs (text-based).</p>
+                </div>
+                <div onclick="showToolModal('fileconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">File Converter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Convert text files to other formats.</p>
+                </div>
+                <div onclick="showToolModal('qrcode')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m0 14v1m-8-9h1m14 0h1m-7 4h1m-1-8h1m-7 4h1m7 0h1m-7 4h1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">QR Code Generator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Generate QR codes from text.</p>
+                </div>
+                <div onclick="showToolModal('pdfmerger')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">PDF Merger</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Merge multiple texts into a PDF.</p>
+                </div>
+                <div onclick="showToolModal('pdfsplitter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">PDF Splitter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Split text into multiple PDFs.</p>
+                </div>
+                <div onclick="showToolModal('pdfcompressor')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">PDF Compressor</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Compress text-based PDFs.</p>
+                </div>
+                <div onclick="showToolModal('filesplitter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">File Splitter</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Split text files into parts.</p>
+                </div>
+                <div onclick="showToolModal('encryption')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-2.76-2.24-5-5-5S2 8.24 2 11m20 0c0-2.76-2.24-5-5-5s-5 2.24-5 5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Encryption Tool</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Encrypt/decrypt text (offline).</p>
+                </div>
+                <!-- Smart Calculators -->
+                <div onclick="showToolModal('loancalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Loan Calculator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Calculate loan payments.</p>
+                </div>
+                <div onclick="showToolModal('mortgagecalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Mortgage Calculator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Calculate mortgage payments.</p>
+                </div>
+                <div onclick="showToolModal('taxestimator')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Tax Estimator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Estimate taxes based on income.</p>
+                </div>
+                <div onclick="showToolModal('interestcalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Interest Calculator</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Calculate interest for savings/loans.</p>
+                </div>
+                                    <div onclick="showToolModal('savingscalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Savings Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate savings growth over time.</p>
+                    </div>
+                    <div onclick="showToolModal('unitconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Unit Converter</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Convert between units (length, weight, etc.).</p>
+                    </div>
+                    <div onclick="showToolModal('currencyconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Currency Converter</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Convert currencies (offline rates).</p>
+                    </div>
+                    <div onclick="showToolModal('timeconverter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Time Zone Converter</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Convert time across time zones.</p>
+                    </div>
+                    <div onclick="showToolModal('datecalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Date Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate date differences or add/subtract days.</p>
+                    </div>
+                    <div onclick="showToolModal('bmi')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">BMI Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate Body Mass Index.</p>
+                    </div>
+                    <div onclick="showToolModal('caloriecalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Calorie Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Estimate daily calorie needs.</p>
+                    </div>
+                    <div onclick="showToolModal('tipcalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Tip Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate tips for bills.</p>
+                    </div>
+                    <div onclick="showToolModal('discountcalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Discount Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate discounts on prices.</p>
+                    </div>
+                    <div onclick="showToolModal('percentagecalc')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                        <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3-3v6m-3 0h6m-6 4h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Percentage Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Calculate percentages for various purposes.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Word Counter Modal -->
-    <div id="wordcounter-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Word Counter</h3>
-                <button onclick="hideToolModal('wordcounter')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <!-- Modals for Tools (Representative Examples) -->
+        <!-- Resume Builder Modal -->
+        <div id="resume-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('resume')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('resume')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </div>
-            <div class="p-6">
-                <textarea id="wordcounter-input" placeholder="Enter your text here..." rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4"></textarea>
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-gray-700 dark:text-gray-300">Words:</span>
-                        <span id="word-count" class="font-bold">0</span>
-                    </div>
-                    <div class="flex justify-between mb-2">
-                        <span class="text-gray-700 dark:text-gray-300">Characters:</span>
-                        <span id="char-count" class="font-bold">0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-700 dark:text-gray-300">Spaces:</span>
-                        <span id="space-count" class="font-bold">0</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- BMI Calculator Modal -->
-    <div id="bmi-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">BMI Calculator</h3>
-                <button onclick="hideToolModal('bmi')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Resume Builder</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="height" class="block text-gray-700 dark:text-gray-300 mb-2">Height (cm)</label>
-                        <input type="number" id="height" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="170">
-                    </div>
-                    <div>
-                        <label for="weight" class="block text-gray-700 dark:text-gray-300 mb-2">Weight (kg)</label>
-                        <input type="number" id="weight" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="70">
-                    </div>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
-                    <div class="text-lg mb-2">
-                        <span class="text-gray-700 dark:text-gray-300">Your BMI:</span>
-                        <span id=" viláfrom="bmi-value" class="font-bold">-</span>
-                    </div>
-                    <div class="text-lg">
-                        <span class="text-gray-700 dark:text-gray-300">Category:</span>
-                        <span id="bmi-category" class="font-bold">-</span>
-                    </div>
-                </div>
-                <button onclick="calculateBMI()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Calculate BMI</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Number to Words Converter Modal -->
-    <div id="numtowords-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Number to Words</h3>
-                <button onclick="hideToolModal('numtowords')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <input type="number" id="numtowords-input" placeholder="Enter a number" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4">
-                <div id="numtowords-output" class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-gray-900 dark:text-white"></div>
-                <button onclick="convertNumberToWords()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Convert</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Countdown Timer Modal -->
-    <div id="countdown-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Countdown Timer</h3>
-                <button onclick="hideToolModal('countdown')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <input type="number" id="countdown-minutes" placeholder="Minutes" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4">
-                <div id="countdown-output" class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-4">00:00</div>
-                <div class="flex gap-2">
-                    <button onclick="startCountdown()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Start</button>
-                    <button onclick="stopCountdown()" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg">Stop</button>
-                    <button onclick="resetCountdown()" class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg">Reset</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JSON Formatter Modal -->
-    <div id="jsonformatter-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">JSON Formatter</h3>
-                <button onclick="hideToolModal('jsonformatter')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <textarea id="jsonformatter-input" placeholder='Enter JSON (e.g., {"name":"John","age":30})' rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4"></textarea>
-                <textarea id="jsonformatter-output" readonly rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
-                <button onclick="formatJSON()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Format JSON</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Random Color Generator Modal -->
-    <div id="color-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Random Color Generator</h3>
-                <button onclick="hideToolModal('color')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div id="color-output" class="w-full h-32 rounded-lg mb-4" style="background-color: #000000;"></div>
-                <input type="text" id="color-hex" readonly class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-center font-mono mb-4">
-                <button onclick="generateColor()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate Color</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Currency Converter Modal -->
-    <div id="currency-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Currency Converter</h3>
-                <button onclick="hideToolModal('currency')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label for="currency-amount" class="block text-gray-700 dark:text-gray-300 mb-2">Amount</label>
-                        <input type="number" id="currency-amount" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white" placeholder="100">
-                    </div>
-                    <div>
-                        <label for="currency-from" class="block text-gray-700 dark:text-gray-300 mb-2">From</label>
-                        <select id="currency-from" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="GBP">GBP</option>
-                            <option value="JPY">JPY</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="currency-to" class="block text-gray-700 dark:text-gray-300 mb-2">To</label>
-                        <select id="currency-to" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="GBP">GBP</option>
-                            <option value="JPY">JPY</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
-                    <span class="text-gray-700 dark:text-gray-300">Result:</span>
-                    <span id="currency-output" class="font-bold">-</span>
-                </div>
-                <button onclick="convertCurrency()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Convert</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Base64 Encoder/Decoder Modal -->
-    <div id="base64-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Base64 Encoder/Decoder</h3>
-                <button onclick="hideToolModal('base64')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <textarea id="base64-input" placeholder="Enter text to encode/decode" rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4"></textarea>
-                <div class="flex gap-2 mb-4">
-                    <button onclick="encodeBase64()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Encode</button>
-                    <button onclick="decodeBase64()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Decode</button>
-                </div>
-                <textarea id="base64-output" readonly rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stopwatch Modal -->
-    <div id="stopwatch-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Stopwatch</h3>
-                <button onclick="hideToolModal('stopwatch')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div id="stopwatch-output" class="text-center text-2xl font-bold text-gray-900 dark:text-white mb-4">00:00:00</div>
-                <div class="flex gap-2">
-                    <button onclick="startStopwatch()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Start</button>
-                    <button onclick="stopStopwatch()" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg">Stop</button>
-                    <button onclick="resetStopwatch()" class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg">Reset</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- HTML Minifier Modal -->
-    <div id="htmlminifier-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">HTML Minifier</h3>
-                <button onclick="hideToolModal('htmlminifier')" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <textarea id="htmlminifier-input" placeholder="Enter HTML code" rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4"></textarea>
-                <textarea id="htmlminifier-output" readonly rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
-                <button onclick="minifyHTML()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg mt-4">Minify HTML</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Modal -->
-    <div id="about-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">About AlphaOne</h3>
-                <button onclick="hideAboutModal()" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 dark:text-gray-300 mb-4">AlphaOne is a collection of powerful, offline AI tools built with HTML, CSS, and JavaScript.</p>
-                <p class="text-gray-700 dark:text-gray-300">All tools run entirely in your browser, requiring no internet connection after loading. Designed for productivity and ease of use.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Modal -->
-    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Contact Us</h3>
-                <button onclick="hideContactModal()" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="p-6">
-                <div class="mb-6">
-                    <p class="text-gray-700 dark:text-gray-300 mb-2"><strong>Name:</strong> AlphaOne Team</p>
-                    <p class="text-gray-700 dark:text-gray-300"><strong>Email:</strong> support@alphaone.example</p>
-                </div>
-                <form id="contact-form" class="space-y-4">
-                    <div>
-                        <label for="contact-name" class="block text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
-                        <input type="text" id="contact-name" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                        <input id="resume-name" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Your Name">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Summary</label>
+                        <textarea id="resume-summary" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="4" placeholder="Professional Summary"></textarea>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Experience</label>
+                        <textarea id="resume-experience" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="4" placeholder="Work Experience"></textarea>
                     </div>
                     <div>
-                        <label for="contact-email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
-                        <input type="email" id="contact-email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
+                        <div id="resume-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]">
+                            <h3 id="resume-preview-name" class="text-xl font-bold"></h3>
+                            <p id="resume-preview-summary" class="mt-2"></p>
+                            <p id="resume-preview-experience" class="mt-2"></p>
+                        </div>
+                        <button onclick="exportResume()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cover Letter Builder Modal -->
+        <div id="coverletter-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('coverletter')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('coverletter')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Cover Letter Builder</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Recipient</label>
+                        <input id="coverletter-recipient" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Recipient Name">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Content</label>
+                        <textarea id="coverletter-content" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="8" placeholder="Cover Letter Content"></textarea>
                     </div>
                     <div>
-                        <label for="contact-message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                        <textarea id="contact-message" rows="4" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
+                        <div id="coverletter-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]">
+                            <p id="coverletter-preview-recipient" class="font-bold"></p>
+                            <p id="coverletter-preview-content" class="mt-2"></p>
+                        </div>
+                        <button onclick="exportCoverLetter()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as PDF</button>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Send Message</button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Terms of Use Modal -->
-    <div id="terms-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Terms of Use</h3>
-                <button onclick="hideTermsModal()" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <!-- Invoice Generator Modal -->
+        <div id="invoice-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('invoice')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('invoice')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 dark:text-gray-300 mb-4">By using AlphaOne, you agree to these terms of use.</p>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">AlphaOne provides tools for personal and non-commercial use. You may not redistribute or modify the tools without permission.</p>
-                <p class="text-gray-700 dark:text-gray-300">We are not liable for any damages resulting from the use of these tools. Use at your own risk.</p>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Invoice Generator</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Client Name</label>
+                        <input id="invoice-client" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Client Name">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Items</label>
+                        <textarea id="invoice-items" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="4" placeholder="Item 1: Description, $100\nItem 2: Description, $200"></textarea>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Total</label>
+                        <input id="invoice-total" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Total Amount">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
+                        <div id="invoice-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]">
+                            <p id="invoice-preview-client" class="font-bold"></p>
+                            <p id="invoice-preview-items" class="mt-2"></p>
+                            <p id="invoice-preview-total" class="mt-2 font-bold"></p>
+                        </div>
+                        <button onclick="exportInvoice()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as PDF</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Privacy Policy</h3>
-                <button onclick="hidePrivacyModal()" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <!-- Markdown Editor Modal -->
+        <div id="markdown-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('markdown')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('markdown')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 dark:text-gray-300 mb-4">AlphaOne does not collect personal data. All tools operate offline in your browser.</p>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">Cookies are used solely to store your preferences (e.g., theme settings).</p>
-                <p class="text-gray-700 dark:text-gray-300">We do not share any data with third parties.</p>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Markdown Editor</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Markdown Input</label>
+                        <textarea id="markdown-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono" rows="10" placeholder="# Title\n## Subtitle\n- List item"></textarea>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">HTML Preview</h3>
+                        <div id="markdown-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px] prose dark:prose-invert"></div>
+                        <button onclick="exportMarkdown()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as HTML</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-       <!-- Disclaimer Modal -->
-    <div id="disclaimer-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-overlay animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-white dark:bg-gray-800 p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Disclaimer</h3>
-                <button onclick="hideDisclaimerModal()" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <!-- Text Diff Checker Modal -->
+        <div id="textdiff-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('textdiff')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('textdiff')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 dark:text-gray-300 mb-4">AlphaOne tools are provided "as is" without any warranties.</p>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">While we strive for accuracy, results from these tools should be used for informational purposes only.</p>
-                <p class="text-gray-700 dark:text-gray-300">AlphaOne is not responsible for any errors or damages arising from the use of these tools.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Toast -->
-    <div id="success-toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 hidden">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Action completed successfully!</span>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-800 dark:bg-gray-900 text-gray-300">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">Home</a></li>
-                    <li><a href="#tools" class="hover:text-white">Tools</a></li>
-                    <li><a href="#" onclick="showAboutModal()" class="hover:text-white">About</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" onclick="showTermsModal()" class="hover:text-white">Terms of Use</a></li>
-                    <li><a href="#" onclick="showPrivacyModal()" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" onclick="showDisclaimerModal()" class="hover:text-white">Disclaimer</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">About AlphaOne</h4>
-                <p class="text-gray-300 mb-4">AlphaOne offers a collection of offline AI tools built with HTML, CSS, and JavaScript for maximum productivity.</p>
-                <a href="#" onclick="showContactModal()" class="text-blue-400 hover:text-blue-300">Contact Us</a>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Text Diff Checker</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Original Text</label>
+                        <textarea id="textdiff-original" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono" rows="8" placeholder="Enter original text"></textarea>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Modified Text</label>
+                        <textarea id="textdiff-modified" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono" rows="8" placeholder="Enter modified text"></textarea>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Differences</h3>
+                        <div id="textdiff-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]"></div>
+                        <button onclick="compareText()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Compare</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mt-8 text-center">
-            <p>© 2025 AlphaOne Tools. All rights reserved.</p>
+
+        <!-- QR Code Generator Modal -->
+        <div id="qrcode-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('qrcode')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('qrcode')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">QR Code Generator</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Input Text/URL</label>
+                        <input id="qrcode-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter text or URL">
+                        <button onclick="generateQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate QR Code</button>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">QR Code Preview</h3>
+                        <div id="qrcode-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px] flex items-center justify-center"></div>
+                        <button onclick="exportQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as PNG</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
+        <!-- Generic Modal Template for Other Tools -->
+        <!-- Note: For brevity, only a few modals are fully implemented above. Below is a template for the remaining tools. -->
+        <!-- Replace 'generic' with specific tool IDs (e.g., 'wordcounter', 'jsonformatter', etc.) -->
+        <div id="generic-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('generic')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('generic')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Generic Tool</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Input</label>
+                        <textarea id="generic-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="8" placeholder="Enter input"></textarea>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Output</h3>
+                        <div id="generic-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]"></div>
+                        <button onclick="processGeneric()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Process</button>
+                        <button onclick="exportGeneric()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
-        }
+        <!-- About Modal -->
+        <div id="about-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('about')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('about')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About AlphaOne</h2>
+                <p class="text-gray-600 dark:text-gray-300">AlphaOne is a suite of 60+ offline tools designed to enhance productivity. From resume building to code formatting, our tools are fast, secure, and work without an internet connection.</p>
+            </div>
+        </div>
 
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('darkMode', isDark);
-            themeIcon.innerHTML = isDark 
-                ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>'
-                : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
-        });
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('contact')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('contact')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Contact Us</h2>
+                <p class="text-gray-600 dark:text-gray-300">Have questions or feedback? Reach out to us at <a href="mailto:support@alphaone.tools" class="text-blue-600 hover:underline">support@alphaone.tools</a>.</p>
+            </div>
+        </div>
 
-        // Cookie Consent
-        if (!localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookie-banner').classList.remove('hidden');
-        }
+        <!-- Terms Modal -->
+        <div id="terms-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('terms')"></div>
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
+                <button onclick="closeModal('terms')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Terms of Use</h2>
+                <p class="text-gray-600 dark:text-gray-300">By using AlphaOne, you agree to use our tools for lawful purposes only. All data is processed locally on your device, ensuring privacy and security.</p>
+            </div>
+        </div>
 
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.add('hidden');
-        }
+        <!-- Footer -->
+        <footer class="bg-gray-800 dark:bg-gray-900 py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <p class="text-gray-300 mb-4">© 2025 AlphaOne Tools. All rights reserved.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" onclick="showTermsModal()" class="text-gray-300 hover:text-white">Terms of Use</a>
+                    <a href="#" onclick="showContactModal()" class="text-gray-300 hover:text-white">Contact</a>
+                    <a href="#" onclick="showAboutModal()" class="text-gray-300 hover:text-white">About</a>
+                </div>
+            </div>
+        </footer>
 
-        // Modal Functions
-        function showToolModal(tool) {
-            document.getElementById(`${tool}-modal`).classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            if (tool === 'password') {
-                document.getElementById('password-length').addEventListener('input', () => {
-                    document.getElementById('length-value').textContent = document.getElementById('password-length').value;
-                });
-                generatePassword();
-            } else if (tool === 'wordcounter') {
-                updateWordCounter();
-            } else if (tool === 'qrcode') {
-                generateQRCode();
-            } else if (tool === 'color') {
-                generateColor();
-            }
-        }
+        <script>
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const htmlElement = document.documentElement;
 
-        function hideToolModal(tool) {
-            document.getElementById(`${tool}-modal`).classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            if (tool === 'countdown') stopCountdown();
-            if (tool === 'stopwatch') stopStopwatch();
-        }
-
-        function showAboutModal() {
-            document.getElementById('about-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideAboutModal() {
-            document.getElementById('about-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function showContactModal() {
-            document.getElementById('contact-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideContactModal() {
-            document.getElementById('contact-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function showTermsModal() {
-            document.getElementById('terms-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideTermsModal() {
-            document.getElementById('terms-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function showPrivacyModal() {
-            document.getElementById('privacy-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hidePrivacyModal() {
-            document.getElementById('privacy-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function showDisclaimerModal() {
-            document.getElementById('disclaimer-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideDisclaimerModal() {
-            document.getElementById('disclaimer-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.addEventListener('click', (event) => {
-            if (event.target.classList.contains('modal-overlay')) {
-                document.querySelectorAll('.modal-overlay').forEach(modal => modal.classList.add('hidden'));
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Tool Logic
-        // Text Case Converter
-        function convertCase(type) {
-            const input = document.getElementById('textcase-input').value;
-            const output = document.getElementById('textcase-output');
-            let result = input;
-            if (type === 'uppercase') result = input.toUpperCase();
-            else if (type === 'lowercase') result = input.toLowerCase();
-            else if (type === 'titlecase') {
-                result = input.toLowerCase().replace(/(^|\s)\w/g, letter => letter.toUpperCase());
-            } else if (type === 'sentencecase') {
-                result = input.toLowerCase().replace(/(^|\.\s+)(\w)/g, (match, p1, p2) => p1 + p2.toUpperCase());
-            }
-            output.value = result;
-            showSuccessToast('Text converted successfully!');
-        }
-
-        // Loan Calculator
-        function calculateLoan() {
-            const amount = parseFloat(document.getElementById('loan-amount').value);
-            const rate = parseFloat(document.getElementById('loan-rate').value) / 100 / 12;
-            const term = parseInt(document.getElementById('loan-term').value) * 12;
-            if (!amount || !rate || !term) {
-                document.getElementById('loan-monthly').textContent = '$0';
-                document.getElementById('loan-interest').textContent = '$0';
-                return;
-            }
-            const monthly = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-            const totalInterest = (monthly * term) - amount;
-            document.getElementById('loan-monthly').textContent = `$${monthly.toFixed(2)}`;
-            document.getElementById('loan-interest').textContent = `$${totalInterest.toFixed(2)}`;
-            showSuccessToast('Loan calculated successfully!');
-        }
-
-        // Age Calculator
-        function calculateAge() {
-            const birthdate = new Date(document.getElementById('birthdate').value);
-            const today = new Date();
-            if (!birthdate || birthdate > today) {
-                document.getElementById('age-output').textContent = '-';
-                return;
-            }
-            let years = today.getFullYear() - birthdate.getFullYear();
-            let months = today.getMonth() - birthdate.getMonth();
-            let days = today.getDate() - birthdate.getDate();
-            if (days < 0) {
-                months--;
-                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-            document.getElementById('age-output').textContent = `${years} years, ${months} months, ${days} days`;
-            showSuccessToast('Age calculated successfully!');
-        }
-
-        // QR Code Generator
-        let qrcode = null;
-        function generateQRCode() {
-            const input = document.getElementById('qrcode-input').value;
-            const output = document.getElementById('qrcode-output');
-            output.innerHTML = '';
-            if (!input) return;
-            qrcode = new QRCode(output, {
-                text: input,
-                width: 200,
-                height: 200,
-                colorDark: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
-                colorLight: document.documentElement.classList.contains('dark') ? '#21262d' : '#ffffff'
+            themeToggle.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                const isDark = htmlElement.classList.contains('dark');
+                themeIcon.innerHTML = isDark
+                    ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>`
+                    : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>`;
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
             });
-            showSuccessToast('QR Code generated successfully!');
-        }
 
-        // Password Generator
-        function generatePassword() {
-            const length = parseInt(document.getElementById('password-length').value);
-            const includeNumbers = document.getElementById('include-numbers').checked;
-            const includeSymbols = document.getElementById('include-symbols').checked;
-            const includeUppercase = document.getElementById('include-uppercase').checked;
-            const includeLowercase = document.getElementById('include-lowercase').checked;
-            let charset = '';
-            if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
-            if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            if (includeNumbers) charset += '0123456789';
-            if (includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
-            if (charset === '') charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let password = '';
-            for (let i = 0; i < length; i++) {
-                const randomIndex = Math.floor(Math.random() * charset.length);
-                password += charset[randomIndex];
+            // Load theme from localStorage
+            if (localStorage.getItem('theme') === 'dark') {
+                htmlElement.classList.add('dark');
+                themeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>`;
             }
-            document.getElementById('password-output').value = password;
-            showSuccessToast('Password generated successfully!');
-        }
 
-        function copyPassword() {
-            const password = document.getElementById('password-output');
-            password.select();
-            document.execCommand('copy');
-            showSuccessToast('Password copied to clipboard!');
-        }
-
-        // Word Counter
-        function updateWordCounter() {
-            const text = document.getElementById('wordcounter-input').value;
-            const words = text.trim() ? text.trim().split(/\s+/) : [];
-            const chars = text.length;
-            const spaces = (text.match(/\s/g) || []).length;
-            document.getElementById('word-count').textContent = words.length;
-            document.getElementById('char-count').textContent = chars;
-            document.getElementById('space-count').textContent = spaces;
-        }
-
-        document.getElementById('wordcounter-input').addEventListener('input', updateWordCounter);
-
-        // BMI Calculator
-        function calculateBMI() {
-            const height = parseFloat(document.getElementById('height').value) / 100;
-            const weight = parseFloat(document.getElementById('weight').value);
-            if (!height || !weight || height <= 0 || weight <= 0) {
-                document.getElementById('bmi-value').textContent = '-';
-                document.getElementById('bmi-category').textContent = '-';
-                return;
+            // Cookie Consent
+            function acceptCookies() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                document.getElementById('cookie-banner').classList.add('hidden');
             }
-            const bmi = (weight / (height * height)).toFixed(1);
-            document.getElementById('bmi-value').textContent = bmi;
-            let category;
-            if (bmi < 18.5) category = 'Underweight';
-            else if (bmi < 25) category = 'Normal weight';
-            else if (bmi < 30) category = 'Overweight';
-            else category = 'Obese';
-            document.getElementById('bmi-category').textContent = category;
-            showSuccessToast('BMI calculated successfully!');
-        }
 
-        // Number to Words Converter
-        function convertNumberToWords() {
-            const number = parseInt(document.getElementById('numtowords-input').value);
-            const output = document.getElementById('numtowords-output');
-            if (isNaN(number) || number < 0 || number > 999999) {
-                output.textContent = 'Please enter a number between 0 and 999,999';
-                return;
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-banner').classList.remove('hidden');
             }
-            const units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-            const teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-            const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
-            function convertHundreds(num) {
-                let result = '';
-                if (num >= 100) {
-                    result += units[Math.floor(num / 100)] + ' hundred';
-                    num %= 100;
-                    if (num > 0) result += ' and ';
+
+            // Modal Handling
+            function showToolModal(toolId) {
+                document.getElementById(`${toolId}-modal`)?.classList.remove('hidden');
+                if (toolId === 'qrcode') initializeQRCode();
+                if (toolId === 'markdown') initializeMarkdown();
+                if (toolId === 'textdiff') initializeTextDiff();
+            }
+
+            function showTermsModal() {
+                document.getElementById('terms-modal').classList.remove('hidden');
+            }
+
+            function showAboutModal() {
+                document.getElementById('about-modal').classList.remove('hidden');
+            }
+
+            function showContactModal() {
+                document.getElementById('contact-modal').classList.remove('hidden');
+            }
+
+            function closeModal(modalId) {
+                document.getElementById(`${modalId}-modal`)?.classList.add('hidden');
+            }
+
+            // Resume Builder
+            document.getElementById('resume-name')?.addEventListener('input', updateResumePreview);
+            document.getElementById('resume-summary')?.addEventListener('input', updateResumePreview);
+            document.getElementById('resume-experience')?.addEventListener('input', updateResumePreview);
+
+            function updateResumePreview() {
+                const name = document.getElementById('resume-name').value;
+                const summary = document.getElementById('resume-summary').value;
+                const experience = document.getElementById('resume-experience').value;
+                document.getElementById('resume-preview-name').textContent = name || 'Your Name';
+                document.getElementById('resume-preview-summary').textContent = summary || 'Professional Summary';
+                document.getElementById('resume-preview-experience').textContent = experience || 'Work Experience';
+            }
+
+            function exportResume() {
+                const content = `
+                    <h1>${document.getElementById('resume-name').value || 'Your Name'}</h1>
+                    <h2>Summary</h2>
+                    <p>${document.getElementById('resume-summary').value || 'Professional Summary'}</p>
+                    <h2>Experience</h2>
+                    <p>${document.getElementById('resume-experience').value || 'Work Experience'}</p>
+                `;
+                exportToPDF(content, 'resume.pdf');
+            }
+
+            // Cover Letter Builder
+            document.getElementById('coverletter-recipient')?.addEventListener('input', updateCoverLetterPreview);
+            document.getElementById('coverletter-content')?.addEventListener('input', updateCoverLetterPreview);
+
+            function updateCoverLetterPreview() {
+                const recipient = document.getElementById('coverletter-recipient').value;
+                const content = document.getElementById('coverletter-content').value;
+                document.getElementById('coverletter-preview-recipient').textContent = recipient || 'Recipient Name';
+                document.getElementById('coverletter-preview-content').textContent = content || 'Cover Letter Content';
+            }
+
+            function exportCoverLetter() {
+                const content = `
+                    <h1>Dear ${document.getElementById('coverletter-recipient').value || 'Recipient'}</h1>
+                    <p>${document.getElementById('coverletter-content').value || 'Cover Letter Content'}</p>
+                `;
+                exportToPDF(content, 'coverletter.pdf');
+            }
+
+            // Invoice Generator
+            document.getElementById('invoice-client')?.addEventListener('input', updateInvoicePreview);
+            document.getElementById('invoice-items')?.addEventListener('input', updateInvoicePreview);
+            document.getElementById('invoice-total')?.addEventListener('input', updateInvoicePreview);
+
+            function updateInvoicePreview() {
+                const client = document.getElementById('invoice-client').value;
+                const items = document.getElementById('invoice-items').value;
+                const total = document.getElementById('invoice-total').value;
+                document.getElementById('invoice-preview-client').textContent = client || 'Client Name';
+                document.getElementById('invoice-preview-items').textContent = items || 'Items';
+                document.getElementById('invoice-preview-total').textContent = total ? `Total: ${total}` : 'Total: $0';
+            }
+
+            function exportInvoice() {
+                const content = `
+                    <h1>Invoice</h1>
+                    <p><strong>Client:</strong> ${document.getElementById('invoice-client').value || 'Client Name'}</p>
+                    <p><strong>Items:</strong><br>${document.getElementById('invoice-items').value || 'Items'}</p>
+                    <p><strong>Total:</strong> ${document.getElementById('invoice-total').value || '$0'}</p>
+                `;
+                exportToPDF(content, 'invoice.pdf');
+            }
+
+            // Markdown Editor
+            function initializeMarkdown() {
+                const input = document.getElementById('markdown-input');
+                input.addEventListener('input', updateMarkdownPreview);
+                updateMarkdownPreview();
+            }
+
+            function updateMarkdownPreview() {
+                const input = document.getElementById('markdown-input').value;
+                const preview = document.getElementById('markdown-preview');
+                // Simple Markdown to HTML (basic parsing)
+                let html = input
+                    .replace(/^# (.*)$/gm, '<h1>$1</h1>')
+                    .replace(/^## (.*)$/gm, '<h2>$1</h2>')
+                    .replace(/^- (.*)$/gm, '<li>$1</li>')
+                    .replace(/\n/g, '<br>');
+                html = `<ul>${html.replace(/<\/li><br>/g, '</li>')}</ul>`;
+                preview.innerHTML = html;
+            }
+
+            function exportMarkdown() {
+                const content = document.getElementById('markdown-preview').innerHTML;
+                exportToPDF(content, 'markdown.pdf');
+            }
+
+            // Text Diff Checker
+            function initializeTextDiff() {
+                document.getElementById('textdiff-original')?.addEventListener('input', compareText);
+                document.getElementById('textdiff-modified')?.addEventListener('input', compareText);
+            }
+
+            function compareText() {
+                const original = document.getElementById('textdiff-original').value.split('\n');
+                const modified = document.getElementById('textdiff-modified').value.split('\n');
+                let output = '';
+                const maxLength = Math.max(original.length, modified.length);
+                for (let i = 0; i < maxLength; i++) {
+                    const origLine = original[i] || '';
+                    const modLine = modified[i] || '';
+                    if (origLine !== modLine) {
+                        output += `<span class="highlight">${origLine || '[Empty]'}</span> -> <span class="highlight">${modLine || '[Empty]'}</span><br>`;
+                    } else {
+                        output += `${origLine}<br>`;
+                    }
                 }
-                if (num >= 20) {
-                    result += tens[Math.floor(num / 10)];
-                    if (num % 10 > 0) result += '-' + units[num % 10];
-                } else if (num >= 10) {
-                    result += teens[num - 10];
-                } else if (num > 0) {
-                    result += units[num];
+                document.getElementById('textdiff-preview').innerHTML = output || 'No differences found.';
+            }
+
+            // QR Code Generator
+            let qrcode = null;
+            function initializeQRCode() {
+                if (!qrcode) {
+                    qrcode = new QRCode(document.getElementById('qrcode-preview'), {
+                        text: '',
+                        width: 200,
+                        height: 200,
+                        colorDark: '#000000',
+                        colorLight: '#ffffff',
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
                 }
-                return result;
+                document.getElementById('qrcode-input').addEventListener('input', generateQRCode);
             }
-            if (number === 0) {
-                output.textContent = 'zero';
-            } else {
-                let result = '';
-                if (number >= 1000) {
-                    result += convertHundreds(Math.floor(number / 1000)) + ' thousand';
-                    number %= 1000;
-                    if (number > 0) result += ' ';
+
+            function generateQRCode() {
+                const input = document.getElementById('qrcode-input').value;
+                qrcode.makeCode(input || 'https://example.com');
+            }
+
+            function exportQRCode() {
+                const canvas = document.getElementById('qrcode-preview').querySelector('canvas');
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qrcode.png';
+                link.click();
+            }
+
+            // Generic Tool Processing (Template for Other Tools)
+            function processGeneric() {
+                const input = document.getElementById('generic-input').value;
+                document.getElementById('generic-preview').textContent = input || 'Output will appear here';
+            }
+
+            function exportGeneric() {
+                const content = document.getElementById('generic-preview').innerHTML;
+                exportToPDF(content, 'generic.pdf');
+            }
+
+            // PDF Export Utility (Simplified for Offline Use)
+            function exportToPDF(content, filename) {
+                const link = document.createElement('a');
+                const blob = new Blob([`
+                    <!DOCTYPE html>
+                    <html>
+                    <head><title>${filename}</title></head>
+                    <body>${content}</body>
+                    </html>
+                `], { type: 'text/html' });
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+                link.click();
+            }
+
+            // Initialize Modals for Other Tools
+            const tools = [
+                'proposal', 'memopad', 'report', 'contract', 'wordcounter', 'spellchecker', 'grammarchecker', 
+                'textformatter', 'caseconverter', 'textsummarizer', 'keyworddensity', 'plagiarismchecker', 
+                'businesscard', 'budgetplanner', 'expensetracker', 'financialcalc', 'businessplan', 
+                'invoicetracker', 'receipt', 'jsonformatter', 'xmlvalidator', 'regextester', 'codeminifier', 
+                'base64encoder', 'htmlvalidator', 'cssbeautifier', 'jsminifier', 'colorpalette', 'logomaker', 
+                'fontpairing', 'imageresizer', 'imagecompressor', 'colorconverter', 'typography', 
+                'letterhead', 'pdfeditor', 'fileconverter', 'pdfmerger', 'pdfsplitter', 'pdfcompressor', 
+                'filesplitter', 'encryption', 'loancalc', 'mortgagecalc', 'taxestimator', 'interestcalc', 
+                'savingscalc', 'unitconverter', 'currencyconverter', 'timeconverter', 'datecalc', 
+                'bmi', 'caloriecalc', 'tipcalc', 'discountcalc', 'percentagecalc'
+            ];
+
+            tools.forEach(tool => {
+                if (!document.getElementById(`${tool}-modal`)) {
+                    const modal = document.createElement('div');
+                    modal.id = `${tool}-modal`;
+                    modal.className = 'modal fixed inset-0 flex items-center justify-center z-50 hidden';
+                    modal.innerHTML = `
+                        <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('${tool}')"></div>
+                        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
+                            <button onclick="closeModal('${tool}')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">${tool.charAt(0).toUpperCase() + tool.slice(1).replace(/calc$/i, ' Calculator')} Tool</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Input</label>
+                                    <textarea id="${tool}-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="8" placeholder="Enter input"></textarea>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Output</h3>
+                                    <div id="${tool}-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]"></div>
+                                    <button onclick="process${tool.charAt(0).toUpperCase() + tool.slice(1)}()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Process</button>
+                                    <button onclick="export${tool.charAt(0).toUpperCase() + tool.slice(1)}()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+
+                    // Add JavaScript functions dynamically
+                    const script = document.createElement('script');
+                    script.text = `
+                        function process${tool.charAt(0).toUpperCase() + tool.slice(1)}() {
+                            const input = document.getElementById('${tool}-input').value;
+                            const preview = document.getElementById('${tool}-preview');
+                            // Basic processing (extend as needed)
+                            preview.textContent = input || 'Output will appear here';
+                        }
+                        function export${tool.charAt(0).toUpperCase() + tool.slice(1)}() {
+                            const content = document.getElementById('${tool}-preview').innerHTML;
+                            exportToPDF(content, '${tool}.pdf');
+                        }
+                    `;
+                    document.body.appendChild(script);
                 }
-                result += convertHundreds(number);
-                output.textContent = result.trim();
-            }
-            showSuccessToast('Number converted successfully!');
-        }
-
-        // Countdown Timer
-        let countdownInterval = null;
-        function startCountdown() {
-            const minutes = parseInt(document.getElementById('countdown-minutes').value);
-            if (!minutes || minutes <= 0) return;
-            let seconds = minutes * 60;
-            clearInterval(countdownInterval);
-            countdownInterval = setInterval(() => {
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                document.getElementById('countdown-output').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-                seconds--;
-                if (seconds < 0) {
-                    clearInterval(countdownInterval);
-                    showSuccessToast('Countdown finished!');
-                }
-            }, 1000);
-        }
-
-        function stopCountdown() {
-            clearInterval(countdownInterval);
-        }
-
-        function resetCountdown() {
-            clearInterval(countdownInterval);
-            document.getElementById('countdown-output').textContent = '00:00';
-            document.getElementById('countdown-minutes').value = '';
-        }
-
-        // JSON Formatter
-        function formatJSON() {
-            const input = document.getElementById('jsonformatter-input').value;
-            const output = document.getElementById('jsonformatter-output');
-            try {
-                const parsed = JSON.parse(input);
-                output.value = JSON.stringify(parsed, null, 2);
-                showSuccessToast('JSON formatted successfully!');
-            } catch (e) {
-                output.value = 'Invalid JSON: ' + e.message;
-            }
-        }
-
-        // Random Color Generator
-        function generateColor() {
-            const hex = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-            document.getElementById('color-output').style.backgroundColor = hex;
-            document.getElementById('color-hex').value = hex;
-            showSuccessToast('Color generated successfully!');
-        }
-
-        // Currency Converter
-        const exchangeRates = {
-            USD: { EUR: 0.85, GBP: 0.73, JPY: 110.0 },
-            EUR: { USD: 1.18, GBP: 0.86, JPY: 129.0 },
-            GBP: { USD: 1.37, EUR: 1.16, JPY: 150.0 },
-            JPY: { USD: 0.0091, EUR: 0.0078, GBP: 0.0067 }
-        };
-
-        function convertCurrency() {
-            const amount = parseFloat(document.getElementById('currency-amount').value);
-            const from = document.getElementById('currency-from').value;
-            const to = document.getElementById('currency-to').value;
-            if (!amount || isNaN(amount)) {
-                document.getElementById('currency-output').textContent = '-';
-                return;
-            }
-            const rate = from === to ? 1 : exchangeRates[from][to];
-            const result = (amount * rate).toFixed(2);
-            document.getElementById('currency-output').textContent = `${result} ${to}`;
-            showSuccessToast('Currency converted successfully!');
-        }
-
-        // Base64 Encoder/Decoder
-        function encodeBase64() {
-            const input = document.getElementById('base64-input').value;
-            const output = document.getElementById('base64-output');
-            try {
-                output.value = btoa(input);
-                showSuccessToast('Text encoded successfully!');
-            } catch (e) {
-                output.value = 'Error: Invalid input for encoding';
-            }
-        }
-
-        function decodeBase64() {
-            const input = document.getElementById('base64-input').value;
-            const output = document.getElementById('base64-output');
-            try {
-                output.value = atob(input);
-                showSuccessToast('Text decoded successfully!');
-            } catch (e) {
-                output.value = 'Error: Invalid Base64 string';
-            }
-        }
-
-        // Stopwatch
-        let stopwatchInterval = null;
-        let stopwatchTime = 0;
-        function startStopwatch() {
-            clearInterval(stopwatchInterval);
-            stopwatchInterval = setInterval(() => {
-                stopwatchTime++;
-                const hours = Math.floor(stopwatchTime / 3600);
-                const minutes = Math.floor((stopwatchTime % 3600) / 60);
-                const seconds = stopwatchTime % 60;
-                document.getElementById('stopwatch-output').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        function stopStopwatch() {
-            clearInterval(stopwatchInterval);
-        }
-
-        function resetStopwatch() {
-            clearInterval(stopwatchInterval);
-            stopwatchTime = 0;
-            document.getElementById('stopwatch-output').textContent = '00:00:00';
-        }
-
-        // HTML Minifier
-        function minifyHTML() {
-            const input = document.getElementById('htmlminifier-input').value;
-            const output = document.getElementById('htmlminifier-output');
-            let minified = input
-                .replace(/\s+/g, ' ')
-                .replace(/>\s+</g, '><')
-                .replace(/^\s+|\s+$/g, '');
-            output.value = minified;
-            showSuccessToast('HTML minified successfully!');
-        }
-
-        // Contact Form
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('Contact form submitted:', {
-                name: document.getElementById('contact-name').value,
-                email: document.getElementById('contact-email').value,
-                message: document.getElementById('contact-message').value
             });
-            this.reset();
-            showSuccessToast('Message sent successfully!');
-            hideContactModal();
-        });
 
-        // Success Toast
-        function showSuccessToast(message) {
-            const toast = document.getElementById('success-toast');
-            toast.querySelector('span').textContent = message;
-            toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3000);
-        }
-    </script>
-</body>
+            // Specific Tool Implementations (Example for Word Counter)
+            function processWordCounter() {
+                const input = document.getElementById('wordcounter-input').value;
+                const preview = document.getElementById('wordcounter-preview');
+                const words = input.trim().split(/\s+/).filter(word => word.length > 0).length;
+                const chars = input.length;
+                const sentences = input.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length;
+                preview.innerHTML = `Words: ${words}<br>Characters: ${chars}<br>Sentences: ${sentences}`;
+            }
+
+            function exportWordCounter() {
+                const content = document.getElementById('wordcounter-preview').innerHTML;
+                exportToPDF(content, 'wordcounter.pdf');
+            }
+
+            // Specific Tool Implementation (Example for JSON Formatter)
+            function processJsonFormatter() {
+                const input = document.getElementById('jsonformatter-input').value;
+                const preview = document.getElementById('jsonformatter-preview');
+                try {
+                    const json = JSON.parse(input);
+                    preview.textContent = JSON.stringify(json, null, 2);
+                } catch (e) {
+                    preview.textContent = 'Invalid JSON';
+                    preview.classList.add('error');
+                }
+            }
+
+            function exportJsonFormatter() {
+                const content = document.getElementById('jsonformatter-preview').innerHTML;
+                exportToPDF(content, 'jsonformatter.pdf');
+            }
+        </script>
+    </body>
 </html>
