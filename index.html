@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaOne - Static Tools Suite</title>
+    <title>AlphaOne - Offline Tools Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
@@ -18,7 +18,8 @@
             --light-secondary: #ffffff;
         }
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.6;
         }
         .gradient-text {
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
@@ -28,7 +29,7 @@
         }
         .tool-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         .dark .gradient-text {
             background: linear-gradient(90deg, #38bdf8, #a78bfa);
@@ -38,22 +39,27 @@
         }
         .highlight {
             background-color: rgba(255, 255, 0, 0.3);
-            padding: 0 2px;
-            border-radius: 2px;
+            padding: 2px 4px;
+            border-radius: 4px;
         }
         .error {
-            background-color: rgba(255, 0, 0, 0.3);
+            background-color: rgba(255, 0, 0, 0.2);
+            padding: 4px;
+            border-radius: 4px;
         }
         .warning {
-            background-color: rgba(255, 165, 0, 0.3);
+            background-color: rgba(255, 165, 0, 0.2);
+            padding: 4px;
+            border-radius: 4px;
         }
         canvas {
             border: 1px solid #ccc;
+            border-radius: 8px;
         }
         .color-picker-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 8px;
         }
         .color-swatch {
             width: 50px;
@@ -61,28 +67,41 @@
             border-radius: 8px;
             cursor: pointer;
             border: 2px solid transparent;
+            transition: border-color 0.2s;
         }
         .color-swatch.selected {
             border-color: #000;
         }
         #qrscanner-video {
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
             border-radius: 8px;
+        }
+        #qrscanner-overlay {
+            position: absolute;
+            border: 2px dashed #3b82f6;
+            border-radius: 8px;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
         }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
     <!-- Cookies Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 dark:bg-gray-900 text-gray-300 py-4 px-6 shadow-md z-50 hidden">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
-            <p class="text-sm mb-4 sm:mb-0">
-                This site uses cookies to improve your experience. By using AlphaOne, you agree to our
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 dark:bg-gray-900 text-gray-200 py-4 px-6 shadow-md z-50 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-sm">
+                We use cookies to enhance your experience. By using AlphaOne, you agree to our
                 <a href="#" onclick="showTermsModal()" class="underline hover:text-white">Terms of Use</a>.
             </p>
             <div class="flex space-x-4">
                 <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">Accept</button>
-                <button onclick="showTermsModal()" class="text-gray-300 hover:text-white">Terms</button>
+                <button onclick="showTermsModal()" class="text-gray-200 hover:text-white">Learn More</button>
             </div>
         </div>
     </div>
@@ -90,18 +109,18 @@
     <!-- Sticky Navigation -->
     <nav class="bg-gray-800 dark:bg-gray-900 py-4 px-6 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#"><div class="flex items-center space-x-2">
+            <a href="#" class="flex items-center space-x-2">
                 <span class="text-2xl font-bold gradient-text">α1</span>
-                <span class="text-xl font-bold text-white hidden sm:inline">AlphaOne</span>
-            </div></a>
+                <span class="text-xl font-semibold text-white hidden sm:inline">AlphaOne</span>
+            </a>
             <div class="flex items-center space-x-6">
-                <a href="#" class="text-gray-300 hover:text-white">Home</a>
-                <a href="#tools" class="text-gray-300 hover:text-white">Tools</a>
-                <a href="#" onclick="showAboutModal()" class="text-gray-300 hover:text-white">About</a>
-                <a href="#" onclick="showContactModal()" class="text-gray-300 hover:text-white">Contact</a>
+                <a href="#" class="text-gray-200 hover:text-white text-sm font-medium">Home</a>
+                <a href="#tools" class="text-gray-200 hover:text-white text-sm font-medium">Tools</a>
+                <a href="#" onclick="showAboutModal()" class="text-gray-200 hover:text-white text-sm font-medium">About</a>
+                <a href="#" onclick="showContactModal()" class="text-gray-200 hover:text-white text-sm font-medium">Contact</a>
             </div>
             <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors">
-                <svg id="theme-icon" class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg id="theme-icon" class="w-5 h-5 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>
             </button>
@@ -109,13 +128,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 text-center">
+    <section class="py-12 px-4 sm:px-6 lg:px-8 text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate__animated animate__fadeIn">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeIn">
                 <span class="gradient-text">AlphaOne</span> Tools Suite
             </h1>
-            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate__animated animate__fadeIn animate__delay-1s">
-                Powerful static tools that work completely offline - no internet required!
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-200 mb-6 animate__animated animate__fadeIn animate__delay-1s">
+                Fast, secure, and offline tools to boost your productivity.
             </p>
         </div>
     </section>
@@ -123,67 +142,67 @@
     <!-- Tools Grid -->
     <section id="tools" class="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Our Tools</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">Our Tools</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- QR Code Generator -->
                 <div onclick="showToolModal('qrcode')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-orange-100 dark:bg-orange-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m0 14v1m-8-9h1m14 0h1m-7 4h1m-1-8h1m-7 4h1m7 0h1m-7 4h1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">QR Code Generator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Generate QR codes from text or URLs.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">QR Code Generator</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Create QR codes from any text or URL.</p>
                 </div>
                 <!-- QR Code Scanner -->
                 <div onclick="showToolModal('qrscanner')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-green-100 dark:bg-green-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h6v6H3V3zm12 0h6v6h-6V3zM3 15h6v6H3v-6zm12 0h6v6h-6v-6zM8 11h8"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">QR Code Scanner</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Scan QR codes from images or webcam.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">QR Code Scanner</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Scan QR codes using your webcam or images.</p>
                 </div>
                 <!-- Text to Speech -->
                 <div onclick="showToolModal('texttospeech')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-cyan-100 dark:bg-cyan-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Text to Speech</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Convert text to speech with open-source voices.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Text to Speech</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Convert text to audio with customizable voices.</p>
                 </div>
                 <!-- Password Generator -->
                 <div onclick="showToolModal('passwordgenerator')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-2.76-2.24-5-5-5S2 8.24 2 11m20 0c0-2.76-2.24-5-5-5s-5 2.24-5 5"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Password Generator</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Generate secure passwords.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Password Generator</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Generate secure, random passwords.</p>
                 </div>
                 <!-- JSON Formatter -->
                 <div onclick="showToolModal('jsonformatter')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20h4M12 4v16"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">JSON Formatter</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Format and validate JSON data.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">JSON Formatter</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Format and validate JSON data easily.</p>
                 </div>
                 <!-- Color Picker -->
                 <div onclick="showToolModal('colorpicker')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
-                    <div class="bg-teal-100 dark:bg-teal-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-teal-100 dark:bg-teal-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Color Picker</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Select and convert colors for design.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Color Picker</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Pick and convert colors for your projects.</p>
                 </div>
             </div>
         </div>
@@ -193,23 +212,23 @@
     <!-- QR Code Generator Modal -->
     <div id="qrcode-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('qrcode')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('qrcode')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('qrcode')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 Fan-Filled" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">QR Code Generator</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Input Text/URL</label>
-                    <input id="qrcode-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter text or URL">
-                    <button onclick="generateQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate QR Code</button>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Enter Text or URL</label>
+                    <input id="qrcode-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" placeholder="e.g., https://example.com">
+                    <button onclick="generateQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Generate QR Code</button>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">QR Code Preview</h3>
-                    <div id="qrcode-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px] flex items-center justify-center"></div>
-                    <button onclick="exportQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as PNG</button>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
+                    <div id="qrcode-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[200px] flex items-center justify-center"></div>
+                    <button onclick="exportQRCode()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Download as PNG</button>
                 </div>
             </div>
         </div>
@@ -218,29 +237,34 @@
     <!-- QR Code Scanner Modal -->
     <div id="qrscanner-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('qrscanner')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('qrscanner')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('qrscanner')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">QR Code Scanner</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Scan QR Code</label>
-                    <div class="flex flex-col space-y-4">
-                        <button onclick="startQRScanner()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Start Webcam Scanner</button>
-                        <input id="qrscanner-file" type="file" accept="image/*" class="p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <button onclick="scanQRFromImage()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Scan from Image</button>
+                <div class="relative">
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Scan QR Code</label>
+                    <div class="flex flex-col space-y-3">
+                        <button onclick="startQRScanner()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Start Webcam</button>
+                        <button onclick="toggleFlashlight()" id="flashlight-toggle" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg text-sm hidden">Enable Flashlight</button>
+                        <input id="qrscanner-file" type="file" accept="image/*" class="p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm">
+                        <button onclick="scanQRFromImage()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Scan from Image</button>
                     </div>
-                    <video id="qrscanner-video" class="mt-4 hidden"></video>
+                    <div class="relative mt-4">
+                        <video id="qrscanner-video" class="hidden"></video>
+                        <div id="qrscanner-overlay" class="hidden"></div>
+                    </div>
+                    <p id="qrscanner-tip" class="text-sm text-gray-500 dark:text-gray-400 mt-2">Tip: Align the QR code within the dashed square for best results.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Scan Result</h3>
-                    <div id="qrscanner-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px] font-mono flex items-center justify-center">
-                        <p>Scan a QR code to see the result here.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Result</h3>
+                    <div id="qrscanner-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[200px] font-mono text-sm flex items-center justify-center">
+                        <p>Point your camera at a QR code or upload an image.</p>
                     </div>
-                    <button onclick="copyQRResult()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Copy Result</button>
+                    <button onclick="copyQRResult()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Copy Result</button>
                 </div>
             </div>
         </div>
@@ -249,8 +273,8 @@
     <!-- Text to Speech Modal -->
     <div id="texttospeech-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('texttospeech')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('texttospeech')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('texttospeech')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -258,22 +282,21 @@
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Text to Speech</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Input Text</label>
-                    <textarea id="tts-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" rows="8" placeholder="Enter text to convert to speech"></textarea>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Select Voice</label>
-                    <select id="tts-voice" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <option value="voice1">Voice 1 (Default)</option>
-                        <option value="voice2">Voice 2</option>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Enter Text</label>
+                    <textarea id="tts-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" rows="6" placeholder="Type your text here..."></textarea>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 mt-3 text-sm font-medium">Select Voice</label>
+                    <select id="tts-voice" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm">
+                        <option value="0">Voice 1 (Default)</option>
                     </select>
-                    <div class="flex space-x-4 mt-4">
-                        <button onclick="playTTS()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Play</button>
-                        <button onclick="downloadTTS()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Download as MP3</button>
+                    <div class="flex space-x-3 mt-4">
+                        <button onclick="playTTS()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Play Audio</button>
+                        <button onclick="downloadTTS()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Download as Text</button>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
-                    <div id="tts-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px]">
-                        <p>Enter text and select a voice to preview audio.</p>
+                    <div id="tts-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[200px] text-sm">
+                        <p>Type text to see it here.</p>
                     </div>
                 </div>
             </div>
@@ -283,8 +306,8 @@
     <!-- Password Generator Modal -->
     <div id="passwordgenerator-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('passwordgenerator')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('passwordgenerator')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('passwordgenerator')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -292,21 +315,21 @@
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Password Generator</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Password Length</label>
-                    <input id="password-length" type="number" min="8" max="50" value="12" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Options</label>
-                    <div class="flex flex-col space-y-2">
-                        <label><input type="checkbox" id="password-uppercase" checked> Uppercase Letters</label>
-                        <label><input type="checkbox" id="password-lowercase" checked> Lowercase Letters</label>
-                        <label><input type="checkbox" id="password-numbers" checked> Numbers</label>
-                        <label><input type="checkbox" id="password-symbols" checked> Symbols</label>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Password Length</label>
+                    <input id="password-length" type="number" min="8" max="50" value="12" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm">
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 mt-3 text-sm font-medium">Include</label>
+                    <div class="flex flex-col space-y-2 text-sm">
+                        <label><input type="checkbox" id="password-uppercase" checked> Uppercase (A-Z)</label>
+                        <label><input type="checkbox" id="password-lowercase" checked> Lowercase (a-z)</label>
+                        <label><input type="checkbox" id="password-numbers" checked> Numbers (0-9)</label>
+                        <label><input type="checkbox" id="password-symbols" checked> Symbols (!@#$%)</label>
                     </div>
-                    <button onclick="generatePassword()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Generate Password</button>
+                    <button onclick="generatePassword()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Generate Password</button>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Generated Password</h3>
-                    <div id="password-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[100px] font-mono"></div>
-                    <button onclick="copyPassword()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Copy to Clipboard</button>
+                    <div id="password-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[100px] font-mono text-sm"></div>
+                    <button onclick="copyPassword()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Copy to Clipboard</button>
                 </div>
             </div>
         </div>
@@ -315,8 +338,8 @@
     <!-- JSON Formatter Modal -->
     <div id="jsonformatter-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('jsonformatter')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('jsonformatter')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('jsonformatter')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -324,14 +347,14 @@
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">JSON Formatter</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">JSON Input</label>
-                    <textarea id="jsonformatter-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono" rows="10" placeholder='{"key": "value"}'></textarea>
-                    <button onclick="processJsonFormatter()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Format JSON</button>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Enter JSON</label>
+                    <textarea id="jsonformatter-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono text-sm" rows="8" placeholder='{"key": "value"}'></textarea>
+                    <button onclick="processJsonFormatter()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Format JSON</button>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Formatted JSON</h3>
-                    <div id="jsonformatter-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[300px] font-mono"></div>
-                    <button onclick="exportJsonFormatter()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Export as JSON</button>
+                    <div id="jsonformatter-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[200px] font-mono text-sm"></div>
+                    <button onclick="exportJsonFormatter()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Download JSON</button>
                 </div>
             </div>
         </div>
@@ -340,8 +363,8 @@
     <!-- Color Picker Modal -->
     <div id="colorpicker-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('colorpicker')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl h-[90vh] overflow-y-auto relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('colorpicker')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('colorpicker')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -349,19 +372,19 @@
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Color Picker</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">Enter Color (HEX, RGB, etc.)</label>
-                    <input id="colorpicker-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="#FF0000 or rgb(255, 0, 0)">
-                    <button onclick="pickColor()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Select Color</button>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2 mt-4">Common Colors</label>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Enter Color (HEX or RGB)</label>
+                    <input id="colorpicker-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" placeholder="#FF0000 or rgb(255, 0, 0)">
+                    <button onclick="pickColor()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Select Color</button>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 mt-3 text-sm font-medium">Common Colors</label>
                     <div id="colorpicker-swatches" class="color-picker-container"></div>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Selected Color</h3>
-                    <div id="colorpicker-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[100px]">
-                        <div id="colorpicker-preview-swatch" style="width: 100px; height: 100px; border-radius: 8px;"></div>
+                    <div id="colorpicker-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[120px] text-sm">
+                        <div id="colorpicker-preview-swatch" style="width: 80px; height: 80px; border-radius: 8px;"></div>
                         <p id="colorpicker-preview-value" class="mt-2"></p>
                     </div>
-                    <button onclick="copyColor()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Copy Color Code</button>
+                    <button onclick="copyColor()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Copy Color Code</button>
                 </div>
             </div>
         </div>
@@ -370,53 +393,53 @@
     <!-- About Modal -->
     <div id="about-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('about')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('about')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('about')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About AlphaOne</h2>
-            <p class="text-gray-600 dark:text-gray-300">AlphaOne is a suite of offline tools designed to enhance productivity. From QR code generation to text-to-speech, our tools are fast, secure, and work without an internet connection.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-200">AlphaOne offers a collection of offline tools to boost productivity, including QR code generation, scanning, text-to-speech, and more—all secure and internet-free.</p>
         </div>
     </div>
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('contact')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('contact')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('contact')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Contact Us</h2>
-            <p class="text-gray-600 dark:text-gray-300">Have questions or feedback? Reach out to us at <a href="mailto:support@alphaone.tools" class="text-blue-600 hover:underline">support@alphaone.tools</a>.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-200">Questions or feedback? Email us at <a href="mailto:support@alphaone.tools" class="text-blue-600 hover:underline">support@alphaone.tools</a>.</p>
         </div>
     </div>
 
     <!-- Terms Modal -->
     <div id="terms-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('terms')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-2xl relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('terms')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('terms')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Terms of Use</h2>
-            <p class="text-gray-600 dark:text-gray-300">By using AlphaOne, you agree to use our tools for lawful purposes only. All data is processed locally on your device, ensuring privacy and security.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-200">By using AlphaOne, you agree to use our tools lawfully. All data is processed locally for maximum privacy and security.</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-gray-900 py-8 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-gray-800 dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto text-center">
-            <p class="text-gray-300 mb-4">© 2025 AlphaOne Tools. All rights reserved.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="#" onclick="showTermsModal()" class="text-gray-300 hover:text-white">Terms of Use</a>
-                <a href="#" onclick="showContactModal()" class="text-gray-300 hover:text-white">Contact</a>
-                <a href="#" onclick="showAboutModal()" class="text-gray-300 hover:text-white">About</a>
+            <p class="text-sm text-gray-200 mb-4">© 2025 AlphaOne Tools. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-sm">
+                <a href="#" onclick="showTermsModal()" class="text-gray-200 hover:text-white">Terms of Use</a>
+                <a href="#" onclick="showContactModal()" class="text-gray-200 hover:text-white">Contact</a>
+                <a href="#" onclick="showAboutModal()" class="text-gray-200 hover:text-white">About</a>
             </div>
         </div>
     </footer>
@@ -436,7 +459,6 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
 
-        // Load theme from localStorage
         if (localStorage.getItem('theme') === 'dark') {
             htmlElement.classList.add('dark');
             themeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>`;
@@ -494,6 +516,7 @@
                 });
             }
             document.getElementById('qrcode-input').addEventListener('input', generateQRCode);
+            generateQRCode();
         }
 
         function generateQRCode() {
@@ -511,26 +534,50 @@
 
         // QR Code Scanner
         let videoStream = null;
+        let isFlashlightOn = false;
         function initializeQRScanner() {
             document.getElementById('qrscanner-file').addEventListener('change', scanQRFromImage);
         }
 
         function startQRScanner() {
             const video = document.getElementById('qrscanner-video');
+            const overlay = document.getElementById('qrscanner-overlay');
+            const flashlightButton = document.getElementById('flashlight-toggle');
             const preview = document.getElementById('qrscanner-preview');
             video.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            flashlightButton.classList.remove('hidden');
 
             navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
                 .then(stream => {
                     videoStream = stream;
                     video.srcObject = stream;
                     video.play();
+                    const track = stream.getVideoTracks()[0];
+                    if (track.getCapabilities().torch) {
+                        flashlightButton.classList.remove('hidden');
+                    }
                     scanQRCodeFromVideo();
                 })
                 .catch(err => {
-                    preview.textContent = 'Error accessing webcam: ' + err.message;
+                    preview.textContent = `Webcam access failed: ${err.message}`;
                     preview.classList.add('error');
+                    video.classList.add('hidden');
+                    overlay.classList.add('hidden');
+                    flashlightButton.classList.add('hidden');
                 });
+        }
+
+        function toggleFlashlight() {
+            if (!videoStream) return;
+            const track = videoStream.getVideoTracks()[0];
+            isFlashlightOn = !isFlashlightOn;
+            track.applyConstraints({ advanced: [{ torch: isFlashlightOn }] })
+                .catch(err => {
+                    document.getElementById('qrscanner-preview').textContent = `Flashlight error: ${err.message}`;
+                    document.getElementById('qrscanner-preview').classList.add('error');
+                });
+            document.getElementById('flashlight-toggle').textContent = isFlashlightOn ? 'Disable Flashlight' : 'Enable Flashlight';
         }
 
         function scanQRCodeFromVideo() {
@@ -541,20 +588,21 @@
 
             function tick() {
                 if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                    canvas.height = video.videoHeight;
-                    canvas.width = video.videoWidth;
+                    const maxDimension = 640; // Optimize for performance
+                    canvas.width = Math.min(video.videoWidth, maxDimension);
+                    canvas.height = Math.min(video.videoHeight, maxDimension * (video.videoHeight / video.videoWidth));
                     context.drawImage(video, 0, 0, canvas.width, canvas.height);
                     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
                     const code = jsQR(imageData.data, imageData.width, imageData.height, {
-                        inversionAttempts: 'dontInvert',
+                        inversionAttempts: 'attemptBoth',
                     });
                     if (code) {
                         preview.textContent = code.data;
-                        preview.classList.remove('error');
+                        preview.classList.remove('error', 'warning');
                         stopQRScanner();
                     } else {
-                        preview.textContent = 'Scanning... Point your camera at a QR code.';
-                        preview.classList.remove('error');
+                        preview.textContent = 'Align QR code within the dashed square.';
+                        preview.classList.add('warning');
                         requestAnimationFrame(tick);
                     }
                 } else {
@@ -568,26 +616,31 @@
             const fileInput = document.getElementById('qrscanner-file');
             const preview = document.getElementById('qrscanner-preview');
             const file = fileInput.files[0];
-            if (!file) return;
+            if (!file) {
+                preview.textContent = 'Please select an image.';
+                preview.classList.add('error');
+                return;
+            }
 
             const reader = new FileReader();
             reader.onload = function(e) {
                 const img = new Image();
                 img.onload = function() {
+                    const maxDimension = 640; // Optimize for performance
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0, img.width, img.height);
-                    const imageData = context.getImageData(0, 0, img.width, img.height);
+                    canvas.width = Math.min(img.width, maxDimension);
+                    canvas.height = Math.min(img.height, maxDimension * (img.height / img.width));
+                    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
                     const code = jsQR(imageData.data, imageData.width, imageData.height, {
-                        inversionAttempts: 'dontInvert',
+                        inversionAttempts: 'attemptBoth',
                     });
                     if (code) {
                         preview.textContent = code.data;
-                        preview.classList.remove('error');
+                        preview.classList.remove('error', 'warning');
                     } else {
-                        preview.textContent = 'No QR code found in the image.';
+                        preview.textContent = 'No QR code found. Try a clearer image.';
                         preview.classList.add('error');
                     }
                 };
@@ -598,19 +651,27 @@
 
         function stopQRScanner() {
             const video = document.getElementById('qrscanner-video');
+            const overlay = document.getElementById('qrscanner-overlay');
+            const flashlightButton = document.getElementById('flashlight-toggle');
             if (videoStream) {
                 videoStream.getTracks().forEach(track => track.stop());
                 videoStream = null;
+                isFlashlightOn = false;
+                flashlightButton.textContent = 'Enable Flashlight';
                 video.classList.add('hidden');
+                overlay.classList.add('hidden');
+                flashlightButton.classList.add('hidden');
             }
         }
 
         function copyQRResult() {
             const result = document.getElementById('qrscanner-preview').textContent;
-            if (result && !result.startsWith('Scan') && !result.startsWith('No QR') && !result.startsWith('Error')) {
+            if (result && !result.includes('Align QR code') && !result.includes('No QR code') && !result.includes('Webcam access') && !result.includes('Please select')) {
                 navigator.clipboard.writeText(result).then(() => {
-                    alert('QR code result copied to clipboard!');
+                    alert('QR code result copied!');
                 });
+            } else {
+                alert('No valid QR code result to copy.');
             }
         }
 
@@ -635,7 +696,7 @@
             populateVoices();
 
             input.addEventListener('input', () => {
-                preview.textContent = input.value || 'Enter text to preview audio.';
+                preview.textContent = input.value || 'Type text to see it here.';
             });
         }
 
@@ -649,6 +710,9 @@
                 const utterance = new SpeechSynthesisUtterance(input);
                 utterance.voice = selectedVoice;
                 speechSynthesis.speak(utterance);
+            } else {
+                document.getElementById('tts-preview').textContent = 'Please enter text to play.';
+                document.getElementById('tts-preview').classList.add('error');
             }
         }
 
@@ -658,9 +722,10 @@
                 const blob = new Blob([input], { type: 'text/plain' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = 'tts.txt';
+                link.download = 'text-to-speech.txt';
                 link.click();
-                alert('Note: Direct audio download requires server-side processing. This is a text placeholder.');
+            } else {
+                alert('Please enter text to download.');
             }
         }
 
@@ -691,8 +756,10 @@
             if (useNumbers) characters += numbers;
             if (useSymbols) characters += symbols;
 
+            const preview = document.getElementById('password-preview');
             if (!characters) {
-                document.getElementById('password-preview').textContent = 'Select at least one character type';
+                preview.textContent = 'Please select at least one character type.';
+                preview.classList.add('error');
                 return;
             }
 
@@ -701,15 +768,18 @@
                 const randomIndex = Math.floor(Math.random() * characters.length);
                 password += characters[randomIndex];
             }
-            document.getElementById('password-preview').textContent = password;
+            preview.textContent = password;
+            preview.classList.remove('error');
         }
 
         function copyPassword() {
             const password = document.getElementById('password-preview').textContent;
-            if (password && password !== 'Select at least one character type') {
+            if (password && !password.includes('Please select')) {
                 navigator.clipboard.writeText(password).then(() => {
-                    alert('Password copied to clipboard!');
+                    alert('Password copied!');
                 });
+            } else {
+                alert('No valid password to copy.');
             }
         }
 
@@ -721,24 +791,31 @@
         function processJsonFormatter() {
             const input = document.getElementById('jsonformatter-input').value;
             const preview = document.getElementById('jsonformatter-preview');
+            if (!input) {
+                preview.textContent = 'Enter JSON to format.';
+                preview.classList.add('warning');
+                return;
+            }
             try {
                 const json = JSON.parse(input);
                 preview.textContent = JSON.stringify(json, null, 2);
-                preview.classList.remove('error');
+                preview.classList.remove('error', 'warning');
             } catch (e) {
-                preview.textContent = 'Invalid JSON: ' + e.message;
+                preview.textContent = `Invalid JSON: ${e.message}`;
                 preview.classList.add('error');
             }
         }
 
         function exportJsonFormatter() {
             const content = document.getElementById('jsonformatter-preview').textContent;
-            if (!content.startsWith('Invalid JSON')) {
+            if (!content.includes('Invalid JSON') && !content.includes('Enter JSON')) {
                 const blob = new Blob([content], { type: 'application/json' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
                 link.download = 'formatted.json';
                 link.click();
+            } else {
+                alert('Please format valid JSON first.');
             }
         }
 
@@ -780,11 +857,12 @@
                     color = `#${parseInt(r).toString(16).padStart(2, '0')}${parseInt(g).toString(16).padStart(2, '0')}${parseInt(b).toString(16).padStart(2, '0')}`;
                 }
             }
+            const previewValue = document.getElementById('colorpicker-preview-value');
             if (/^#[0-9A-Fa-f]{6}$/i.test(color)) {
                 updateColorPreview(color);
             } else {
-                document.getElementById('colorpicker-preview-value').textContent = 'Invalid color format';
-                document.getElementById('colorpicker-preview-value').classList.add('error');
+                previewValue.textContent = 'Invalid color (use HEX or RGB)';
+                previewValue.classList.add('error');
             }
         }
 
@@ -798,10 +876,12 @@
 
         function copyColor() {
             const color = document.getElementById('colorpicker-preview-value').textContent.replace('HEX: ', '');
-            if (!color.startsWith('Invalid')) {
+            if (!color.includes('Invalid')) {
                 navigator.clipboard.writeText(color).then(() => {
-                    alert('Color code copied to clipboard!');
+                    alert('Color code copied!');
                 });
+            } else {
+                alert('No valid color to copy.');
             }
         }
     </script>
