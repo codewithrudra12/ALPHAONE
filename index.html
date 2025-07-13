@@ -214,6 +214,16 @@
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Encode/Decode</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-300">Encode or decode text using Base64 or URL methods.</p>
                 </div>
+                <!-- README File Creator -->
+                <div onclick="showToolModal('readme')" class="tool-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer">
+                    <div class="bg-red-100 dark:bg-red-900/30 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">README File Creator</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Generate a README markdown file from a URL.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -432,6 +442,35 @@
         </div>
     </div>
 
+    <!-- README File Creator Modal -->
+    <div id="readme-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('readme')"></div>
+        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-3xl h-[80vh] overflow-y-auto relative animate__animated animate__fadeIn">
+            <button onclick="closeModal('readme')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">README File Creator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 text-sm font-medium">Enter Project URL</label>
+                    <input id="readme-input" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" placeholder="e.g., https://github.com/user/project">
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 mt-3 text-sm font-medium">Project Name</label>
+                    <input id="readme-project-name" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" placeholder="e.g., My Awesome Project">
+                    <label class="block text-gray-700 dark:text-gray-200 mb-2 mt-3 text-sm font-medium">Description</label>
+                    <textarea id="readme-description" class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm" rows="4" placeholder="Brief description of your project"></textarea>
+                    <button onclick="generateReadme()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Generate README</button>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Preview</h3>
+                    <div id="readme-preview" class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700 min-h-[200px] font-mono text-sm"></div>
+                    <button onclick="downloadReadme()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Download README.md</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- About Modal -->
     <div id="about-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
         <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('about')"></div>
@@ -442,7 +481,7 @@
                 </svg>
             </button>
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About AlphaOne</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-200">AlphaOne offers a collection of offline tools to boost productivity, including QR code generation, scanning, text-to-speech, encoding/decoding, and more—all secure and internet-free.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-200">AlphaOne offers a collection of offline tools to boost productivity, including QR code generation, scanning, text-to-speech, encoding/decoding, README creation, and more—all secure and internet-free.</p>
         </div>
     </div>
 
@@ -526,6 +565,7 @@
             if (toolId === 'jsonformatter') initializeJsonFormatter();
             if (toolId === 'colorpicker') initializeColorPicker();
             if (toolId === 'encodedecode') initializeEncodeDecode();
+            if (toolId === 'readme') initializeReadme();
         }
 
         function showTermsModal() {
@@ -631,7 +671,7 @@
 
             function tick() {
                 if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                    const maxDimension = 640; // Optimize for performance
+                    const maxDimension = 640;
                     canvas.width = Math.min(video.videoWidth, maxDimension);
                     canvas.height = Math.min(video.videoHeight, maxDimension * (video.videoHeight / video.videoWidth));
                     context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -669,7 +709,7 @@
             reader.onload = function(e) {
                 const img = new Image();
                 img.onload = function() {
-                    const maxDimension = 640; // Optimize for performance
+                    const maxDimension = 640;
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
                     canvas.width = Math.min(img.width, maxDimension);
@@ -975,6 +1015,87 @@
                 alert('No valid result to copy.');
             }
         }
+
+        // README File Creator
+        function initializeReadme() {
+            document.getElementById('readme-input').addEventListener('input', generateReadme);
+            document.getElementById('readme-project-name').addEventListener('input', generateReadme);
+            document.getElementById('readme-description').addEventListener('input', generateReadme);
+            generateReadme();
+        }
+
+        function generateReadme() {
+            const url = document.getElementById('readme-input').value.trim();
+            const projectName = document.getElementById('readme-project-name').value.trim();
+            const description = document.getElementById('readme-description').value.trim();
+            const preview = document.getElementById('readme-preview');
+
+            if (!url || !projectName) {
+                preview.textContent = 'Please enter a valid URL and project name.';
+                preview.classList.add('warning');
+                return;
+            }
+
+            // Basic URL validation
+            try {
+                new URL(url);
+            } catch (e) {
+                preview.textContent = 'Invalid URL format.';
+                preview.classList.add('error');
+                return;
+            }
+
+            // Generate a simple README template
+            const readmeContent = `# ${projectName}
+
+## Description
+${description || 'A brief description of your project.'}
+
+## Repository
+[${url}](${url})
+
+## Installation
+\`\`\`bash
+# Instructions for installing your project
+git clone ${url}
+cd ${projectName.toLowerCase().replace(/\s+/g, '-')}
+npm install
+\`\`\`
+
+## Usage
+\`\`\`bash
+# Instructions for running your project
+npm start
+\`\`\`
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request at [${url}](${url}).
+
+## License
+MIT License
+`;
+
+            preview.textContent = readmeContent;
+            preview.classList.remove('error', 'warning');
+        }
+
+        function downloadReadme() {
+            const content = document.getElementById('readme-preview').textContent;
+            if (content && !content.includes('Please enter') && !content.includes('Invalid URL')) {
+                const blob = new Blob([content], { type: 'text/markdown' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'README.md';
+                link.click();
+            } else {
+                alert('Please generate a valid README first.');
+            }
+        }
+
+        // Ensure default context menu is not blocked
+        document.addEventListener('contextmenu', (event) => {
+            event.stopImmediatePropagation();
+        }, true);
     </script>
 </body>
 </html>
