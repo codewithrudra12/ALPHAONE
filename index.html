@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeResourceHub - Developer's Knowledge Base</title>
+    <title>CodeResourceHub - Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" href="https://i.ibb.co/hxZsFtv5/Whats-App-Image-2025-06-29-at-13-26-12-7d72d29f.jpg">
     <style>
         :root {
@@ -23,13 +23,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        .language-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .dark .gradient-text {
-            background: linear-gradient(90deg, #38bdf8, #a78bfa);
         }
         .code-snippet {
             background-color: #2d2d2d;
@@ -54,15 +47,6 @@
         .code-comment {
             color: #6272a4;
         }
-        .section-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
@@ -76,55 +60,34 @@
         .search-box:focus {
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
-        .cheatsheet-table {
-            width: 100%;
-            border-collapse: collapse;
+        .coming-soon-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .cheatsheet-table th, .cheatsheet-table td {
-            border: 1px solid #e5e7eb;
-            padding: 0.75rem;
-            text-align: left;
+        .dark .coming-soon-card {
+            background: rgba(0, 0, 0, 0.2);
         }
-        .dark .cheatsheet-table th, .dark .cheatsheet-table td {
-            border-color: #4b5563;
-        }
-        .quick-link {
-            transition: all 0.2s ease;
-        }
-        .quick-link:hover {
-            transform: translateX(5px);
+        .language-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin: 0 auto 1rem;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
-    <!-- Cookies Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 dark:bg-gray-900 text-gray-200 py-4 px-6 shadow-md z-50 hidden">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-sm">
-                We use cookies to enhance your experience. By using CodeResourceHub, you agree to our
-                <a href="#" onclick="showTermsModal()" class="underline hover:text-white">Terms of Use</a>.
-            </p>
-            <div class="flex space-x-4">
-                <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">Accept</button>
-                <button onclick="showTermsModal()" class="text-gray-200 hover:text-white">Learn More</button>
-            </div>
-        </div>
-    </div>
-
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-300">
     <!-- Sticky Navigation -->
     <nav class="bg-gray-800 dark:bg-gray-900 py-4 px-6 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
-                <span class="text-2xl font-bold gradient-text">CRH</span>
+                <span class="text-2xl font-bold gradient-text">CSH</span>
                 <span class="text-xl font-semibold text-white hidden sm:inline">CodeResourceHub</span>
             </a>
-            <div class="flex items-center space-x-6">
-                <a href="#" class="text-gray-200 hover:text-white text-sm font-medium">Home</a>
-                <a href="#languages" class="text-gray-200 hover:text-white text-sm font-medium">Languages</a>
-                <a href="#cheatsheets" class="text-gray-200 hover:text-white text-sm font-medium">Cheatsheets</a>
-                <a href="#resources" class="text-gray-200 hover:text-white text-sm font-medium">Resources</a>
-                <a href="#" onclick="showAboutModal()" class="text-gray-200 hover:text-white text-sm font-medium">About</a>
-            </div>
             <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors">
                 <svg id="theme-icon" class="w-5 h-5 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
@@ -133,101 +96,24 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
-        <div class="max-w-5xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate__animated animate__fadeIn">
-                The Ultimate <span class="gradient-text">Developer Resource</span> Hub
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-200 mb-8 animate__animated animate__fadeIn animate__delay-1s">
-                Find cheatsheets, documentation, and ready-to-use code snippets for all major programming languages and technologies.
-            </p>
-            <div class="relative max-w-xl mx-auto">
-                <input type="text" placeholder="Search languages, concepts, or code snippets..." class="w-full p-4 pl-12 rounded-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white search-box">
-                <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-4xl mx-auto text-center">
+            <!-- Logo and Heading -->
+            <div class="mb-12">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">CodeSpaceHub</span> is Coming Soon
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
+                    We're building the ultimate developer resource hub with code snippets, cheatsheets, and documentation for all major programming languages.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- Programming Languages Section -->
-    <section id="languages" class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Programming Languages</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                <!-- HTML -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-orange-100 dark:bg-orange-900/30 mx-auto">
-                        <span class="text-orange-600 dark:text-orange-400 font-bold">HTML</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">HTML5</h3>
-                </div>
-                
-                <!-- CSS -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-blue-100 dark:bg-blue-900/30 mx-auto">
-                        <span class="text-blue-600 dark:text-blue-400 font-bold">CSS</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">CSS3</h3>
-                </div>
-                
-                <!-- JavaScript -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-yellow-100 dark:bg-yellow-900/30 mx-auto">
-                        <span class="text-yellow-600 dark:text-yellow-400 font-bold">JS</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">JavaScript</h3>
-                </div>
-                
-                <!-- Python -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-blue-100 dark:bg-blue-900/30 mx-auto">
-                        <span class="text-blue-600 dark:text-blue-400 font-bold">Py</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Python</h3>
-                </div>
-                
-                <!-- Java -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-red-100 dark:bg-red-900/30 mx-auto">
-                        <span class="text-red-600 dark:text-red-400 font-bold">Java</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Java</h3>
-                </div>
-                
-                <!-- C++ -->
-                <div class="language-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer text-center">
-                    <div class="section-icon bg-blue-100 dark:bg-blue-900/30 mx-auto">
-                        <span class="text-blue-600 dark:text-blue-400 font-bold">C++</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">C++</h3>
-                </div>
-                
-                <!-- More languages would go here -->
-            </div>
-            
-            <div class="mt-12 text-center">
-                <a href="#languages" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
-                    View all programming languages
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Code Snippet Example Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Ready-to-Use Code Snippets</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">JavaScript: Fetch API Example</h3>
-                    <div class="code-snippet">
-                        <pre><code><span class="code-keyword">async function</span> <span class="code-function">fetchData</span>(url) {
+            <!-- Code Snippet Preview -->
+            <div class="mb-12 max-w-3xl mx-auto">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">A Taste of What's Coming</h2>
+                <div class="code-snippet rounded-xl text-left">
+                    <pre><code><span class="code-keyword">async function</span> <span class="code-function">fetchData</span>(url) {
   <span class="code-keyword">try</span> {
     <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(url);
     <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.json();
@@ -237,228 +123,70 @@
   }
 }
 
-<span class="code-comment">// Usage</span>
+<span class="code-comment">// Usage example</span>
 <span class="code-function">fetchData</span>(<span class="code-string">'https://api.example.com/data'</span>)
   .<span class="code-function">then</span>(data => console.<span class="code-function">log</span>(data));</code></pre>
-                    </div>
-                    <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Copy Code</button>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Python: HTTP Request</h3>
-                    <div class="code-snippet">
-                        <pre><code><span class="code-keyword">import</span> requests
-
-<span class="code-keyword">def</span> <span class="code-function">fetch_data</span>(url):
-    <span class="code-keyword">try</span>:
-        response = requests.get(url)
-        response.raise_for_status()
-        <span class="code-keyword">return</span> response.json()
-    <span class="code-keyword">except</span> requests.exceptions.RequestException <span class="code-keyword">as</span> e:
-        print(<span class="code-string">f"Error: {e}"</span>)
-        <span class="code-keyword">return</span> None
-
-<span class="code-comment"># Usage</span>
-data = fetch_data(<span class="code-string">'https://api.example.com/data'</span>)
-<span class="code-keyword">if</span> data:
-    print(data)</code></pre>
-                    </div>
-                    <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Copy Code</button>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <a href="#snippets" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
-                    Explore more code snippets
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Cheatsheets Section -->
-    <section id="cheatsheets" class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Quick Reference Cheatsheets</h2>
-            
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Git Commands</h3>
-                <div class="overflow-x-auto">
-                    <table class="cheatsheet-table">
-                        <thead class="bg-gray-100 dark:bg-gray-700">
-                            <tr>
-                                <th class="font-semibold">Command</th>
-                                <th class="font-semibold">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="font-mono">git init</td>
-                                <td>Initialize a new Git repository</td>
-                            </tr>
-                            <tr>
-                                <td class="font-mono">git clone [url]</td>
-                                <td>Clone a repository from a remote source</td>
-                            </tr>
-                            <tr>
-                                <td class="font-mono">git add [file]</td>
-                                <td>Stage changes for commit</td>
-                            </tr>
-                            <tr>
-                                <td class="font-mono">git commit -m "[message]"</td>
-                                <td>Commit staged changes with a message</td>
-                            </tr>
-                            <tr>
-                                <td class="font-mono">git push</td>
-                                <td>Push committed changes to remote repository</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Supported Languages -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Languages We'll Cover</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                    <div class="coming-soon-card rounded-lg p-4">
+                        <div class="language-icon bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">HTML</div>
+                        <div class="text-gray-800 dark:text-gray-200">HTML5</div>
+                    </div>
+                    <div class="coming-soon-card rounded-lg p-4">
+                        <div class="language-icon bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">CSS</div>
+                        <div class="text-gray-800 dark:text-gray-200">CSS3</div>
+                    </div>
+                    <div class="coming-soon-card rounded-lg p-4">
+                        <div class="language-icon bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">JS</div>
+                        <div class="text-gray-800 dark:text-gray-200">JavaScript</div>
+                    </div>
+                    <div class="coming-soon-card rounded-lg p-4">
+                        <div class="language-icon bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">Py</div>
+                        <div class="text-gray-800 dark:text-gray-200">Python</div>
+                    </div>
                 </div>
-                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm">Download Full Cheatsheet</button>
             </div>
-            
-            <div class="mt-12 text-center">
-                <a href="#cheatsheets" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
-                    View all cheatsheets
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Additional Resources Section -->
-    <section id="resources" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Developer Resources</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Documentation</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Comprehensive guides and references for popular programming languages and frameworks.</p>
-                    <a href="#" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">Explore Docs</a>
-                </div>
-                
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Tutorials</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Step-by-step tutorials for beginners and advanced developers on various technologies.</p>
-                    <a href="#" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">View Tutorials</a>
-                </div>
-                
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Best Practices</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Industry standards and best practices for writing clean, maintainable code.</p>
-                    <a href="#" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">Learn More</a>
+            <!-- Notify Form -->
+            <div class="coming-soon-card rounded-xl p-8 mb-12 max-w-2xl mx-auto">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Get Notified When We Launch</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">Enter your email below to be the first to know when we're live</p>
+                <form class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <input type="email" placeholder="Your email address" class="flex-grow max-w-md px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all">Notify Me</button>
+                </form>
+            </div>
+
+            <!-- Social Links -->
+            <div class="mb-12">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Follow Our Progress</h2>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">CodeResourceHub</h3>
-                <p class="text-gray-400 text-sm">The ultimate developer resource for code snippets, cheatsheets, and documentation.</p>
-            </div>
-            
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">Home</a></li>
-                    <li><a href="#languages" class="text-gray-400 hover:text-white quick-link text-sm">Programming Languages</a></li>
-                    <li><a href="#cheatsheets" class="text-gray-400 hover:text-white quick-link text-sm">Cheatsheets</a></li>
-                    <li><a href="#resources" class="text-gray-400 hover:text-white quick-link text-sm">Resources</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Connect With Us</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">GitHub</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">Twitter</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">Discord</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">YouTube</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" onclick="showTermsModal()" class="text-gray-400 hover:text-white quick-link text-sm">Terms of Use</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">Privacy Policy</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white quick-link text-sm">Disclaimer</a></li>
-                    <li><a href="#" onclick="showContactModal()" class="text-gray-400 hover:text-white quick-link text-sm">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center">
-            <p class="text-gray-400 text-sm">© 2025 CodeResourceHub. All rights reserved.</p>
-        </div>
+    <footer class="bg-gray-800 dark:bg-gray-900 py-8 px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-400 text-sm">© 2025 CodeSpaceHub. All rights reserved.</p>
     </footer>
-
-    <!-- About Modal -->
-    <div id="about-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('about')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('about')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About CodeResourceHub</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-200 mb-4">CodeResourceHub is a comprehensive platform for developers to find ready-to-use code snippets, cheatsheets, and documentation for various programming languages and technologies.</p>
-            <p class="text-sm text-gray-600 dark:text-gray-200">Our mission is to help developers save time and write better code by providing easily accessible resources.</p>
-        </div>
-    </div>
-
-    <!-- Contact Modal -->
-    <div id="contact-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('contact')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('contact')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Contact Us</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-200">Have questions or suggestions? Reach out to us at <a href="mailto:support@coderesourcehub.com" class="text-blue-600 hover:underline">support@coderesourcehub.com</a>.</p>
-        </div>
-    </div>
-
-    <!-- Terms Modal -->
-    <div id="terms-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="modal-overlay fixed inset-0 bg-black opacity-70" onclick="closeModal('terms')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg relative animate__animated animate__fadeIn">
-            <button onclick="closeModal('terms')" class="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Terms of Use</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-200">By using CodeResourceHub, you agree to use our resources for educational and development purposes only. All code snippets are provided as-is without warranty.</p>
-        </div>
-    </div>
 
     <script>
         // Theme Toggle
@@ -480,54 +208,12 @@ data = fetch_data(<span class="code-string">'https://api.example.com/data'</span
             themeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>`;
         }
 
-        // Cookie Consent
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.add('hidden');
-        }
-
-        if (!localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookie-banner').classList.remove('hidden');
-        }
-
-        // Modal Handling
-        function showAboutModal() {
-            document.getElementById('about-modal').classList.remove('hidden');
-        }
-
-        function showContactModal() {
-            document.getElementById('contact-modal').classList.remove('hidden');
-        }
-
-        function showTermsModal() {
-            document.getElementById('terms-modal').classList.remove('hidden');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(`${modalId}-modal`)?.classList.add('hidden');
-        }
-
-        // Copy code functionality
-        document.querySelectorAll('.code-snippet + button').forEach(button => {
-            button.addEventListener('click', () => {
-                const code = button.previousElementSibling.querySelector('code').innerText;
-                navigator.clipboard.writeText(code).then(() => {
-                    const originalText = button.textContent;
-                    button.textContent = 'Copied!';
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                    }, 2000);
-                });
-            });
-        });
-
-        // Language card click handling
-        document.querySelectorAll('.language-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const language = card.querySelector('h3').textContent;
-                alert(`Opening resources for ${language}`);
-                // In a real implementation, this would navigate to the language page
-            });
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thanks! We'll notify you at ${email} when we launch.`);
+            this.querySelector('input[type="email"]').value = '';
         });
     </script>
 </body>
