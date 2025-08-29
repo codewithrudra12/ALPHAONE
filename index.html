@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeResourceHub - Coming Soon</title>
+    <title>CODESPACEHUB - Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" href="https://i.ibb.co/hxZsFtv5/Whats-App-Image-2025-06-29-at-13-26-12-7d72d29f.jpg">
@@ -94,6 +94,18 @@
             background: rgba(34, 197, 94, 0.15);
             border-color: rgba(34, 197, 94, 0.3);
         }
+        .thank-you-message {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .thank-you-message.show {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 200px;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-300">
@@ -101,8 +113,8 @@
     <nav class="bg-gray-800 dark:bg-gray-900 py-4 px-6 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
-                <span class="text-2xl font-bold gradient-text">CRH</span>
-                <span class="text-xl font-semibold text-white hidden sm:inline">CodeResourceHub</span>
+                <span class="text-2xl font-bold gradient-text">CSH</span>
+                <span class="text-xl font-semibold text-white hidden sm:inline">CODESPACEHUB</span>
             </a>
             <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors">
                 <svg id="theme-icon" class="w-5 h-5 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +130,7 @@
             <!-- Logo and Heading -->
             <div class="mb-12">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-                    <span class="gradient-text">CodeResourceHub</span> is Coming Soon
+                    <span class="gradient-text">CODESPACEHUB</span> is Coming Soon
                 </h1>
                 <p class="text-lg md:text-xl text-gray-600 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
                     We're building the ultimate developer resource hub with code snippets, cheatsheets, and documentation for all major programming languages.
@@ -185,7 +197,7 @@
                 </p>
                 <form id="notify-form" class="flex flex-col sm:flex-row gap-4 justify-center items-start">
                     <div class="flex-grow max-w-md">
-                        <input type="email" placeholder="Your email address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="email" id="email-input" placeholder="Your email address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 text-left">
                             <i class="fas fa-lock mr-1"></i> Encrypted and stored securely
                         </p>
@@ -194,6 +206,23 @@
                         <i class="fas fa-bell mr-2"></i> Notify Me
                     </button>
                 </form>
+                
+                <!-- Thank You Message (Initially Hidden) -->
+                <div id="thank-you-message" class="thank-you-message mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-green-800 dark:text-green-200 font-medium">Thank you!</h3>
+                            <div class="mt-1 text-green-700 dark:text-green-300 text-sm">
+                                <p>We've added <span id="user-email" class="font-medium"></span> to our notification list.</p>
+                                <p class="mt-1">We'll send you one email when CODESPACEHUB launches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
                     <p class="text-xs text-gray-500 dark:text-gray-400">
                         <i class="fas fa-info-circle mr-1"></i> We respect your privacy. You'll only receive a single notification when we launch, with an option to unsubscribe.
@@ -249,7 +278,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 dark:bg-gray-900 py-8 px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-400 text-sm">© 2023 CodeResourceHub. All rights reserved. <a href="#" class="underline hover:text-gray-300" onclick="showPrivacyPolicy()">Privacy Policy</a></p>
+        <p class="text-gray-400 text-sm">© 2023 CODESPACEHUB. All rights reserved. <a href="#" class="underline hover:text-gray-300" onclick="showPrivacyPolicy()">Privacy Policy</a></p>
     </footer>
 
     <!-- Privacy Policy Modal -->
@@ -262,13 +291,13 @@
                 </button>
             </div>
             <div class="text-gray-600 dark:text-gray-300 text-sm space-y-4">
-                <p>At CodeResourceHub, we take your privacy seriously. This policy outlines how we handle your information:</p>
+                <p>At CODESPACEHUB, we take your privacy seriously. This policy outlines how we handle your information:</p>
                 
                 <h4 class="font-semibold text-gray-800 dark:text-white mt-4">Information We Collect</h4>
                 <p>We only collect your email address for the purpose of notifying you when our platform launches.</p>
                 
                 <h4 class="font-semibold text-gray-800 dark:text-white mt-4">How We Use Your Information</h4>
-                <p>Your email address will be used solely to send you a one-time notification when CodeResourceHub becomes available. We will not use your email for any other purposes.</p>
+                <p>Your email address will be used solely to send you a one-time notification when CODESPACEHUB becomes available. We will not use your email for any other purposes.</p>
                 
                 <h4 class="font-semibold text-gray-800 dark:text-white mt-4">Data Storage and Security</h4>
                 <p>We implement appropriate security measures to protect your information. Your email is stored encrypted and accessed only for the purpose of sending the launch notification.</p>
@@ -277,7 +306,7 @@
                 <p>We do not and will not share your email address with any third parties. Your information remains confidential.</p>
                 
                 <h4 class="font-semibold text-gray-800 dark:text-white mt-4">Your Rights</h4>
-                <p>You can request deletion of your information at any time by contacting us at privacy@coderesourcehub.com.</p>
+                <p>You can request deletion of your information at any time by contacting us at privacy@codespacehub.com.</p>
                 
                 <p class="mt-6">By providing your email address, you agree to these terms.</p>
             </div>
@@ -307,11 +336,22 @@
         // Form submission
         document.getElementById('notify-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value;
             
-            // Show a privacy-focused confirmation
-            alert(`Thank you! We'll notify you at ${email} when we launch. Your email is kept private and secure.`);
-            this.querySelector('input[type="email"]').value = '';
+            if (email) {
+                // Show the private thank you message
+                document.getElementById('user-email').textContent = email;
+                document.getElementById('thank-you-message').classList.add('show');
+                
+                // Clear the form
+                emailInput.value = '';
+                
+                // Hide the thank you message after 10 seconds
+                setTimeout(() => {
+                    document.getElementById('thank-you-message').classList.remove('show');
+                }, 10000);
+            }
         });
 
         // Modal functions
