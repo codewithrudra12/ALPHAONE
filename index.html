@@ -31,9 +31,11 @@
             padding: 1rem;
             overflow-x: auto;
             font-family: 'Fira Code', monospace;
+            position: relative;
         }
         .code-snippet pre {
             margin: 0;
+            min-height: 200px;
         }
         .code-keyword {
             color: #ff79c6;
@@ -46,6 +48,18 @@
         }
         .code-comment {
             color: #6272a4;
+        }
+        .code-tag {
+            color: #ff79c6;
+        }
+        .code-attribute {
+            color: #50fa7b;
+        }
+        .code-number {
+            color: #bd93f9;
+        }
+        .code-type {
+            color: #8be9fd;
         }
         .animate-float {
             animation: float 3s ease-in-out infinite;
@@ -106,6 +120,68 @@
             transform: translateY(0);
             max-height: 200px;
         }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .code-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f8f8f2;
+        }
+        .code-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .code-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 4px;
+            color: #f8f8f2;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .code-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .copy-btn {
+            position: relative;
+        }
+        .copy-tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        .copy-btn.copied .copy-tooltip {
+            opacity: 1;
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #f8f8f2;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-300">
@@ -141,7 +217,22 @@
             <div class="mb-12 max-w-3xl mx-auto">
                 <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">A Taste of What's Coming</h2>
                 <div class="code-snippet rounded-xl text-left">
-                    <pre><code><span class="code-keyword">async function</span> <span class="code-function">fetchData</span>(url) {
+                    <div class="code-header">
+                        <div class="code-title" id="code-snippet-title">JavaScript Example</div>
+                        <div class="code-controls">
+                            <button class="code-btn" id="prev-code" title="Previous example">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="code-btn copy-btn" id="copy-code" title="Copy to clipboard">
+                                <i class="fas fa-copy"></i>
+                                <span class="copy-tooltip">Copied!</span>
+                            </button>
+                            <button class="code-btn" id="next-code" title="Next example">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code id="code-content"><span class="code-keyword">async function</span> <span class="code-function">fetchData</span>(url) {
   <span class="code-keyword">try</span> {
     <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(url);
     <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.json();
@@ -370,6 +461,288 @@
                 closeModal();
             }
         });
+
+        // Code snippet examples
+        const codeExamples = [
+            {
+                title: "JavaScript Example",
+                code: `<span class="code-keyword">async function</span> <span class="code-function">fetchData</span>(url) {
+  <span class="code-keyword">try</span> {
+    <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(url);
+    <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.json();
+    <span class="code-keyword">return</span> data;
+  } <span class="code-keyword">catch</span> (error) {
+    console.<span class="code-function">error</span>(<span class="code-string">'Error:'</span>, error);
+  }
+}
+
+<span class="code-comment">// Usage example</span>
+<span class="code-function">fetchData</span>(<span class="code-string">'https://api.example.com/data'</span>)
+  .<span class="code-function">then</span>(data => console.<span class="code-function">log</span>(data));`
+            },
+            {
+                title: "HTML Example",
+                code: `<span class="code-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="code-tag">&lt;html</span> <span class="code-attribute">lang</span>=<span class="code-string">"en"</span><span class="code-tag">&gt;</span>
+<span class="code-tag">&lt;head&gt;</span>
+  <span class="code-tag">&lt;meta</span> <span class="code-attribute">charset</span>=<span class="code-string">"UTF-8"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;meta</span> <span class="code-attribute">name</span>=<span class="code-string">"viewport"</span> <span class="code-attribute">content</span>=<span class="code-string">"width=device-width, initial-scale=1.0"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;title&gt;</span>Document<span class="code-tag">&lt;/title&gt;</span>
+<span class="code-tag">&lt;/head&gt;</span>
+<span class="code-tag">&lt;body&gt;</span>
+  <span class="code-tag">&lt;h1&gt;</span>Hello World!<span class="code-tag">&lt;/h1&gt;</span>
+<span class="code-tag">&lt;/body&gt;</span>
+<span class="code-tag">&lt;/html&gt;</span>`
+            },
+            {
+                title: "CSS Example",
+                code: `<span class="code-tag">.container</span> {
+  <span class="code-attribute">display</span>: flex;
+  <span class="code-attribute">flex-direction</span>: column;
+  <span class="code-attribute">align-items</span>: center;
+  <span class="code-attribute">justify-content</span>: center;
+  <span class="code-attribute">max-width</span>: <span class="code-number">1200</span>px;
+  <span class="code-attribute">margin</span>: <span class="code-number">0</span> auto;
+  <span class="code-attribute">padding</span>: <span class="code-number">2</span>rem;
+}
+
+<span class="code-tag">.card</span> {
+  <span class="code-attribute">background</span>: white;
+  <span class="code-attribute">border-radius</span>: <span class="code-number">8</span>px;
+  <span class="code-attribute">box-shadow</span>: <span class="code-number">0</span> <span class="code-number">4</span>px <span class="code-number">6</span>px rgba(0, 0, 0, 0.1);
+  <span class="code-attribute">padding</span>: <span class="code-number">1.5</span>rem;
+  <span class="code-attribute">transition</span>: transform 0.2s ease;
+}
+
+<span class="code-tag">.card:hover</span> {
+  <span class="code-attribute">transform</span>: translateY(-5px);
+}`
+            },
+            {
+                title: "Python Example",
+                code: `<span class="code-keyword">def</span> <span class="code-function">fibonacci</span>(n):
+    <span class="code-string">"""Generate Fibonacci sequence up to n terms."""</span>
+    a, b = <span class="code-number">0</span>, <span class="code-number">1</span>
+    sequence = []
+    <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> range(n):
+        sequence.append(a)
+        a, b = b, a + b
+    <span class="code-keyword">return</span> sequence
+
+<span class="code-comment"># Get first 10 Fibonacci numbers</span>
+fib_sequence = fibonacci(<span class="code-number">10</span>)
+print(<span class="code-string">f"Fibonacci sequence: {fib_sequence}"</span>)`
+            },
+            {
+                title: "Java Example",
+                code: `<span class="code-keyword">public class</span> <span class="code-type">Main</span> {
+    <span class="code-keyword">public static void</span> <span class="code-function">main</span>(String[] args) {
+        System.out.println(<span class="code-string">"Hello, World!"</span>);
+        
+        <span class="code-comment">// Create an array of integers</span>
+        <span class="code-keyword">int</span>[] numbers = {<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>};
+        
+        <span class="code-comment">// Calculate sum</span>
+        <span class="code-keyword">int</span> sum = <span class="code-number">0</span>;
+        <span class="code-keyword">for</span> (<span class="code-keyword">int</span> num : numbers) {
+            sum += num;
+        }
+        
+        System.out.println(<span class="code-string">"Sum: "</span> + sum);
+    }
+}`
+            },
+            {
+                title: "Go Example",
+                code: `<span class="code-keyword">package</span> main
+
+<span class="code-keyword">import</span> (
+    <span class="code-string">"fmt"</span>
+    <span class="code-string">"time"</span>
+)
+
+<span class="code-keyword">func</span> <span class="code-function">main</span>() {
+    <span class="code-comment">// Print current time</span>
+    fmt.Println(<span class="code-string">"Current time:"</span>, time.Now().Format(time.RFC1123))
+    
+    <span class="code-comment">// Create a slice of strings</span>
+    fruits := []string{<span class="code-string">"apple"</span>, <span class="code-string">"banana"</span>, <span class="code-string">"cherry"</span>}
+    
+    <span class="code-comment">// Iterate over the slice</span>
+    <span class="code-keyword">for</span> index, fruit := <span class="code-keyword">range</span> fruits {
+        fmt.Printf(<span class="code-string">"Index: %d, Fruit: %s\n"</span>, index, fruit)
+    }
+}`
+            },
+            {
+                title: "Rust Example",
+                code: `<span class="code-keyword">fn</span> <span class="code-function">main</span>() {
+    <span class="code-comment">// Immutable variable</span>
+    <span class="code-keyword">let</span> x = <span class="code-number">5</span>;
+    println!(<span class="code-string">"The value of x is: {}"</span>, x);
+    
+    <span class="code-comment">// Mutable variable</span>
+    <span class="code-keyword">let</span> <span class="code-keyword">mut</span> y = <span class="code-number">10</span>;
+    y = y + <span class="code-number">1</span>;
+    println!(<span class="code-string">"The value of y is: {}"</span>, y);
+    
+    <span class="code-comment">// Function call</span>
+    <span class="code-keyword">let</span> result = <span class="code-function">add_numbers</span>(x, y);
+    println!(<span class="code-string">"{} + {} = {}"</span>, x, y, result);
+}
+
+<span class="code-keyword">fn</span> <span class="code-function">add_numbers</span>(a: <span class="code-type">i32</span>, b: <span class="code-type">i32</span>) -> <span class="code-type">i32</span> {
+    a + b
+}`
+            },
+            {
+                title: "C++ Example",
+                code: `<span class="code-comment">#include &lt;iostream&gt;</span>
+<span class="code-comment">#include &lt;vector&gt;</span>
+
+<span class="code-keyword">using namespace</span> std;
+
+<span class="code-keyword">int</span> <span class="code-function">main</span>() {
+    cout << <span class="code-string">"Hello, World!"</span> << endl;
+    
+    <span class="code-comment">// Create a vector of integers</span>
+    vector<<span class="code-keyword">int</span>> numbers = {<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>};
+    
+    <span class="code-comment">// Calculate sum</span>
+    <span class="code-keyword">int</span> sum = <span class="code-number">0</span>;
+    <span class="code-keyword">for</span> (<span class="code-keyword">int</span> num : numbers) {
+        sum += num;
+    }
+    
+    cout << <span class="code-string">"Sum: "</span> << sum << endl;
+    <span class="code-keyword">return</span> <span class="code-number">0</span>;
+}`
+            },
+            {
+                title: "Django Example",
+                code: `<span class="code-comment"># models.py</span>
+<span class="code-keyword">from</span> django.db <span class="code-keyword">import</span> models
+
+<span class="code-keyword">class</span> <span class="code-type">BlogPost</span>(models.Model):
+    title = models.CharField(max_length=<span class="code-number">200</span>)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=<span class="code-keyword">True</span>)
+    updated_at = models.DateTimeField(auto_now=<span class="code-keyword">True</span>)
+    
+    <span class="code-keyword">def</span> <span class="code-function">__str__</span>(self):
+        <span class="code-keyword">return</span> self.title
+
+<span class="code-comment"># views.py</span>
+<span class="code-keyword">from</span> django.shortcuts <span class="code-keyword">import</span> render
+<span class="code-keyword">from</span> .models <span class="code-keyword">import</span> BlogPost
+
+<span class="code-keyword">def</span> <span class="code-function">post_list</span>(request):
+    posts = BlogPost.objects.all().order_by(<span class="code-string">'-created_at'</span>)
+    <span class="code-keyword">return</span> render(request, <span class="code-string">'blog/post_list.html'</span>, {<span class="code-string">'posts'</span>: posts})`
+            },
+            {
+                title: "Flask Example",
+                code: `<span class="code-keyword">from</span> flask <span class="code-keyword">import</span> Flask, render_template, request
+
+app = Flask(__name__)
+
+<span class="code-keyword">class</span> <span class="code-type">Task</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self, id, title, completed=False):
+        self.id = id
+        self.title = title
+        self.completed = completed
+
+tasks = [
+    Task(<span class="code-number">1</span>, <span class="code-string">'Learn Flask'</span>),
+    Task(<span class="code-number">2</span>, <span class="code-string">'Build an app'</span>)
+]
+
+@app.route(<span class="code-string">'/'</span>)
+<span class="code-keyword">def</span> <span class="code-function">index</span>():
+    <span class="code-keyword">return</span> render_template(<span class="code-string">'index.html'</span>, tasks=tasks)
+
+<span class="code-keyword">if</span> __name__ == <span class="code-string">'__main__'</span>:
+    app.run(debug=<span class="code-keyword">True</span>)`
+            }
+        ];
+
+        let currentCodeIndex = 0;
+        const codeContent = document.getElementById('code-content');
+        const codeTitle = document.getElementById('code-snippet-title');
+        const prevButton = document.getElementById('prev-code');
+        const nextButton = document.getElementById('next-code');
+        const copyButton = document.getElementById('copy-code');
+        
+        // Function to type out code with animation
+        function typeCode(code, index = 0) {
+            if (index === 0) {
+                codeContent.innerHTML = '<span class="typing-cursor"></span>';
+            }
+            
+            if (index < code.length) {
+                // Remove the cursor
+                const cursor = codeContent.querySelector('.typing-cursor');
+                if (cursor) cursor.remove();
+                
+                // Add the next character
+                codeContent.innerHTML += code[index];
+                
+                // Add the cursor back
+                codeContent.innerHTML += '<span class="typing-cursor"></span>';
+                
+                // Scroll to bottom
+                codeContent.scrollTop = codeContent.scrollHeight;
+                
+                // Continue typing with a random delay to simulate natural typing
+                setTimeout(() => typeCode(code, index + 1), Math.random() * 40 + 10);
+            }
+        }
+        
+        // Function to show code example
+        function showCodeExample(index) {
+            currentCodeIndex = index;
+            codeTitle.textContent = codeExamples[index].title;
+            typeCode(codeExamples[index].code);
+            
+            // Update button states
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === codeExamples.length - 1;
+        }
+        
+        // Event listeners for navigation
+        prevButton.addEventListener('click', () => {
+            if (currentCodeIndex > 0) {
+                showCodeExample(currentCodeIndex - 1);
+            }
+        });
+        
+        nextButton.addEventListener('click', () => {
+            if (currentCodeIndex < codeExamples.length - 1) {
+                showCodeExample(currentCodeIndex + 1);
+            }
+        });
+        
+        // Copy button functionality
+        copyButton.addEventListener('click', () => {
+            // Extract text content without HTML tags
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = codeExamples[currentCodeIndex].code
+                .replace(/<span class="[^"]*">/g, '')
+                .replace(/<\/span>/g, '');
+            const codeText = tempDiv.textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Show "Copied!" tooltip
+                copyButton.classList.add('copied');
+                setTimeout(() => {
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            });
+        });
+        
+        // Initialize with first code example
+        showCodeExample(0);
     </script>
 </body>
 </html>
